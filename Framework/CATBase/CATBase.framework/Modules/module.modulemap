@@ -1,0 +1,6 @@
+framework module CATBase {
+  umbrella header "CATBase.h"
+
+  export *
+  module * { export * }
+}
