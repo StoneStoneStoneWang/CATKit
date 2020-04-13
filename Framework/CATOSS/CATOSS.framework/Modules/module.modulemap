@@ -1,0 +1,6 @@
+framework module CATOSS {
+  umbrella header "CATOSS.h"
+
+  export *
+  module * { export * }
+}

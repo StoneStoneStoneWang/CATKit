@@ -1,0 +1,6 @@
+framework module CATYY {
+  umbrella header "CATYY.h"
+
+  export *
+  module * { export * }
+}
