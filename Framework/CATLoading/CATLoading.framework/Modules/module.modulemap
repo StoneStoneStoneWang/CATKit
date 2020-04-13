@@ -1,0 +1,6 @@
+framework module CATLoading {
+  umbrella header "CATLoading.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module CATHud {
+  umbrella header "CATHud.h"
+
+  export *
+  module * { export * }
+}
