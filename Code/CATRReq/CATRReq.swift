@@ -9,23 +9,23 @@
 import Foundation
 import RxSwift
 import WLReqKit
-import AWMCache
-import AWMReq
-import AWMUpload
-import AWMSign
+import CATCache
+import CATReq
+import CATUpload
+import CATSign
 
-public func awmDictResp<T : WLObserverReq>(_ req: T) -> Observable<[String:Any]> {
+public func catDictResp<T : WLObserverReq>(_ req: T) -> Observable<[String:Any]> {
     
     return Observable<[String:Any]>.create({ (observer) -> Disposable in
         
         var params = req.params
         
-        if !AWMAccountCache.default.token.isEmpty {
+        if !CATAccountCache.default.token.isEmpty {
             
-            params.updateValue(AWMAccountCache.default.token, forKey: "token")
+            params.updateValue(CATAccountCache.default.token, forKey: "token")
         }
         
-        AWMReq.postWithUrl(url: req.host + req.reqName, params: params, header: req.headers, succ: { (data) in
+        CATReq.postWithUrl(url: req.host + req.reqName, params: params, header: req.headers, succ: { (data) in
             
             observer.onNext(data as! [String:Any])
             
@@ -42,17 +42,17 @@ public func awmDictResp<T : WLObserverReq>(_ req: T) -> Observable<[String:Any]>
     })
 }
 
-public func awmArrayResp<T : WLObserverReq>(_ req: T) -> Observable<[Any]> {
+public func catArrayResp<T : WLObserverReq>(_ req: T) -> Observable<[Any]> {
     
     return Observable<[Any]>.create({ (observer) -> Disposable in
         
         var params = req.params
         
-        if !AWMAccountCache.default.token.isEmpty {
+        if !CATAccountCache.default.token.isEmpty {
             
-            params.updateValue(AWMAccountCache.default.token, forKey: "token")
+            params.updateValue(CATAccountCache.default.token, forKey: "token")
         }
-        AWMReq.postWithUrl(url: req.host + req.reqName, params: params, header: req.headers, succ: { (data) in
+        CATReq.postWithUrl(url: req.host + req.reqName, params: params, header: req.headers, succ: { (data) in
 
             observer.onNext(data as! [Any])
 
@@ -71,18 +71,18 @@ public func awmArrayResp<T : WLObserverReq>(_ req: T) -> Observable<[Any]> {
 }
 
 // 无返回值的 在data里
-public func awmVoidResp<T : WLObserverReq>(_ req: T) -> Observable<Void> {
+public func catVoidResp<T : WLObserverReq>(_ req: T) -> Observable<Void> {
     
     return Observable<Void>.create({ (observer) -> Disposable in
         
         var params = req.params
         
-        if !AWMAccountCache.default.token.isEmpty {
+        if !CATAccountCache.default.token.isEmpty {
             
-            params.updateValue(AWMAccountCache.default.token, forKey: "token")
+            params.updateValue(CATAccountCache.default.token, forKey: "token")
         }
         
-        AWMReq.postWithUrl(url: req.host + req.reqName, params: params, header: req.headers, succ: { (data) in
+        CATReq.postWithUrl(url: req.host + req.reqName, params: params, header: req.headers, succ: { (data) in
 
             observer.onNext(())
 
@@ -100,17 +100,17 @@ public func awmVoidResp<T : WLObserverReq>(_ req: T) -> Observable<Void> {
     })
 }
 
-public func awmAliResp<T : WLObserverReq>(_ req: T) -> Observable<AWMALCredentialsBean> {
+public func catAliResp<T : WLObserverReq>(_ req: T) -> Observable<CATALCredentialsBean> {
     
-    return Observable<AWMALCredentialsBean>.create({ (observer) -> Disposable in
+    return Observable<CATALCredentialsBean>.create({ (observer) -> Disposable in
         
         var params = req.params
         
-        if !AWMAccountCache.default.token.isEmpty {
+        if !CATAccountCache.default.token.isEmpty {
             
-            params.updateValue(AWMAccountCache.default.token, forKey: "token")
+            params.updateValue(CATAccountCache.default.token, forKey: "token")
         }
-        AWMUpload.fetchAliObj(withUrl: req.host + req.reqName , andParams: params, andHeader: req.headers, andSucc: { (credentials) in
+        CATUpload.fetchAliObj(withUrl: req.host + req.reqName , andParams: params, andHeader: req.headers, andSucc: { (credentials) in
 
             observer.onNext(credentials)
 
@@ -129,11 +129,11 @@ public func awmAliResp<T : WLObserverReq>(_ req: T) -> Observable<AWMALCredentia
     })
 }
 
-public func awmUploadImgResp(_ data: Data ,file: String ,param: AWMALCredentialsBean) -> Observable<String> {
+public func catUploadImgResp(_ data: Data ,file: String ,param: CATALCredentialsBean) -> Observable<String> {
     
     return Observable<String>.create({ (observer) -> Disposable in
         
-        AWMUpload.uploadAvatar(with: data, andFile: file, andUid: AWMAccountCache.default.uid, andParams: param, andSucc: { (objKey) in
+        CATUpload.uploadAvatar(with: data, andFile: file, andUid: CATAccountCache.default.uid, andParams: param, andSucc: { (objKey) in
 
             observer.onNext(objKey)
 
@@ -152,11 +152,11 @@ public func awmUploadImgResp(_ data: Data ,file: String ,param: AWMALCredentials
     })
 }
 
-public func awmUploadPubImgResp(_ data: Data ,file: String ,param: AWMALCredentialsBean) -> Observable<String> {
+public func catUploadPubImgResp(_ data: Data ,file: String ,param: CATALCredentialsBean) -> Observable<String> {
     
     return Observable<String>.create({ (observer) -> Disposable in
         
-        AWMUpload.uploadImage(with: data, andFile: file, andUid: AWMAccountCache.default.uid, andParams: param, andSucc: { (objKey) in
+        CATUpload.uploadImage(with: data, andFile: file, andUid: CATAccountCache.default.uid, andParams: param, andSucc: { (objKey) in
 
             observer.onNext(objKey)
 
@@ -174,11 +174,11 @@ public func awmUploadPubImgResp(_ data: Data ,file: String ,param: AWMALCredenti
         return Disposables.create { }
     })
 }
-public func awmUploadVideoResp(_ data: Data ,file: String ,param: AWMALCredentialsBean) -> Observable<String> {
+public func catUploadVideoResp(_ data: Data ,file: String ,param: CATALCredentialsBean) -> Observable<String> {
     
     return Observable<String>.create({ (observer) -> Disposable in
         
-        AWMUpload.uploadVideo(with: data, andFile: file, andUid: AWMAccountCache.default.uid, andParams: param, andSucc: { (objKey) in
+        CATUpload.uploadVideo(with: data, andFile: file, andUid: CATAccountCache.default.uid, andParams: param, andSucc: { (objKey) in
 
             observer.onNext(objKey)
 
@@ -197,11 +197,11 @@ public func awmUploadVideoResp(_ data: Data ,file: String ,param: AWMALCredentia
     })
 }
 
-public func awmTranslateResp<T : WLObserverReq>(_ req: T) -> Observable<[String:Any]> {
+public func catTranslateResp<T : WLObserverReq>(_ req: T) -> Observable<[String:Any]> {
     
     return Observable<[String:Any]>.create({ (observer) -> Disposable in
         
-        AWMReq.postTranslateWithParams(params: req.params, succ: { (data) in
+        CATReq.postTranslateWithParams(params: req.params, succ: { (data) in
             observer.onNext(data as! [String:Any])
             
             observer.onCompleted()
@@ -216,11 +216,11 @@ public func awmTranslateResp<T : WLObserverReq>(_ req: T) -> Observable<[String:
     })
 }
 
-public func awmAreaResp<T : WLObserverReq>(_ req: T) -> Observable<[Any]> {
+public func catAreaResp<T : WLObserverReq>(_ req: T) -> Observable<[Any]> {
     
     return Observable<[Any]>.create({ (observer) -> Disposable in
         
-        AWMReq.postAreaWithUrl(url: req.host + req.reqName, params: req.params, succ: { (data) in
+        CATReq.postAreaWithUrl(url: req.host + req.reqName, params: req.params, succ: { (data) in
             
             if data is NSDictionary {
                 
