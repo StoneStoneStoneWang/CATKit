@@ -1,5 +1,5 @@
 //
-//  AWMAnimationSetionModel.swift
+//  CATAnimationSetionModel.swift
 //  ZCocoa
 //
 //  Created by three stone 王 on 2019/8/29.
@@ -9,7 +9,7 @@
 import Foundation
 import RxDataSources
 
-public struct AWMAnimationSetionModel<ItemType: IdentifiableType & Equatable> {
+public struct CATAnimationSetionModel<ItemType: IdentifiableType & Equatable> {
     public var header: String
     public var items: [Item]
     
@@ -19,14 +19,14 @@ public struct AWMAnimationSetionModel<ItemType: IdentifiableType & Equatable> {
     }
 }
 
-extension AWMAnimationSetionModel : AnimatableSectionModelType {
+extension CATAnimationSetionModel : AnimatableSectionModelType {
     public typealias Item = ItemType
     
     public var identity: String {
         return header
     }
     
-    public init(original: AWMAnimationSetionModel, items: [Item]) {
+    public init(original: CATAnimationSetionModel, items: [Item]) {
         self = original
         self.items = items
     }

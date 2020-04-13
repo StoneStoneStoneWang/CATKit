@@ -12,7 +12,7 @@ import RxCocoa
 
 extension Reactive where Base: UIButton {
     
-    public var awmSkipTitle: Binder<String> {
+    public var CATSkipTitle: Binder<String> {
         
         return Binder(self.base) {
             
@@ -25,7 +25,7 @@ extension Reactive where Base: UIButton {
 
 extension Reactive where Base: UIButton {
     
-    public var awmSms: Binder<(Bool ,String)> {
+    public var CATSms: Binder<(Bool ,String)> {
         return Binder(self.base) { item, arg in
             
             item.isEnabled = arg.0
