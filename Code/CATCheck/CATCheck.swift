@@ -10,7 +10,7 @@ import Foundation
 import WLBaseResult
 import WLToolsKit
 
-public func awmCheckUsernameAndPassword(_ username: String ,password: String) -> WLBaseResult {
+public func catCheckUsernameAndPassword(_ username: String ,password: String) -> WLBaseResult {
     
     if username.isEmpty || username.wl_isEmpty {
         
@@ -34,7 +34,7 @@ public func awmCheckUsernameAndPassword(_ username: String ,password: String) ->
     return WLBaseResult.ok("验证成功")
 }
 
-public func awmCheckUsernameAndVCode(_ mobile: String ,vcode: String) -> WLBaseResult {
+public func catCheckUsernameAndVCode(_ mobile: String ,vcode: String) -> WLBaseResult {
     
     if mobile.isEmpty || mobile.wl_isEmpty {
         
@@ -57,7 +57,7 @@ public func awmCheckUsernameAndVCode(_ mobile: String ,vcode: String) -> WLBaseR
     
     return WLBaseResult.ok( "")
 }
-public func awmCheckUsername(_ mobile: String ) -> WLBaseResult {
+public func catCheckUsername(_ mobile: String ) -> WLBaseResult {
     
     if mobile.isEmpty || mobile.wl_isEmpty {
         
@@ -77,7 +77,7 @@ public func smsResult(count: Int) -> (Bool ,String) {
     else { return (false ,"(\(count)s)")}
 }
 
-public func awmCheckPasswordForget(_ mobile: String ,vcode: String ,password: String) -> WLBaseResult {
+public func catCheckPasswordForget(_ mobile: String ,vcode: String ,password: String) -> WLBaseResult {
     
     if mobile.isEmpty || mobile.wl_isEmpty {
         
@@ -111,7 +111,7 @@ public func awmCheckPasswordForget(_ mobile: String ,vcode: String ,password: St
     return WLBaseResult.ok( "")
 }
 
-public func awmCheckPasswordModify(_ oldpassword: String,password: String ,passwordAgain: String) -> WLBaseResult {
+public func catCheckPasswordModify(_ oldpassword: String,password: String ,passwordAgain: String) -> WLBaseResult {
     
     if oldpassword.isEmpty || oldpassword.wl_isEmpty {
         
