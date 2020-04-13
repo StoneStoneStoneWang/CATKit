@@ -1,0 +1,6 @@
+framework module CATNavi {
+  umbrella header "CATNavi.h"
+
+  export *
+  module * { export * }
+}
