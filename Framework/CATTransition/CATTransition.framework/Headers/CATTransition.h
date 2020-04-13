@@ -17,3 +17,6 @@ FOUNDATION_EXPORT const unsigned char CATTransitionVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <CATTransition/PublicHeader.h>
 
 
+#import <CATTransition/CATTViewController.h>
+
+#import <CATTransition/CATTNavigationController.h>
