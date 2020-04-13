@@ -1,5 +1,5 @@
 //
-//  AWMLeftImageTextField.swift
+//  CATLeftImageTextField.swift
 //  TSTFKit_Swift
 //
 //  Created by three stone 王 on 2018/11/22.
@@ -7,8 +7,8 @@
 //
 
 import UIKit
-@objc (AWMLeftImageTextField)
-open class AWMLeftImageTextField: AWMBaseTextField {
+@objc (CATLeftImageTextField)
+open class CATLeftImageTextField: CATBaseTextField {
     
     fileprivate final let leftImageView: UIImageView = UIImageView()
     
@@ -50,10 +50,10 @@ open class AWMLeftImageTextField: AWMBaseTextField {
         return leftImageFrame
     }
 }
-extension AWMLeftImageTextField {
+extension CATLeftImageTextField {
     
     
-    @objc open override func makeAttribute(_ closure: @escaping (AWMLeftImageTextField) -> ()) {
+    @objc open override func makeAttribute(_ closure: @escaping (CATLeftImageTextField) -> ()) {
         
         closure(self)
     }

@@ -1,5 +1,5 @@
 //
-//  AWMLeftTitleTextField.swift
+//  CATLeftTitleTextField.swift
 //  TSTFKit_Swift
 //
 //  Created by three stone 王 on 2018/11/22.
@@ -9,8 +9,8 @@
 import UIKit
 import WLToolsKit
 
-@objc (AWMLeftTitleTextField)
-open class AWMLeftTitleTextField: AWMBaseTextField {
+@objc (CATLeftTitleTextField)
+open class CATLeftTitleTextField: CATBaseTextField {
     
     open var leftTitleLabel: UILabel = UILabel()
     @objc (leftTitle)
@@ -50,9 +50,9 @@ open class AWMLeftTitleTextField: AWMBaseTextField {
     
 }
 
-extension AWMLeftTitleTextField {
+extension CATLeftTitleTextField {
     
-    @objc open override func makeAttribute(_ closure: @escaping (AWMLeftTitleTextField) -> ()) {
+    @objc open override func makeAttribute(_ closure: @escaping (CATLeftTitleTextField) -> ()) {
         
         closure(self)
     }

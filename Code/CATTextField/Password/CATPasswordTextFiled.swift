@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-@objc (AWMPasswordImageTextFiled)
-public final class AWMPasswordImageTextFiled: AWMLeftImageTextField {
+@objc (CATPasswordImageTextFiled)
+public final class CATPasswordImageTextFiled: CATLeftImageTextField {
     
     @objc (passwordItem)
     public final let passwordItem: UIButton = UIButton(type: .custom)
@@ -51,19 +51,19 @@ public final class AWMPasswordImageTextFiled: AWMLeftImageTextField {
     public override func commitInit() {
         super.commitInit()
         
-        awm_rightViewMode(.always)
+        cat_rightViewMode(.always)
     
-        awm_editType(.secret)
+        cat_editType(.secret)
         
-        awm_maxLength(18)
+        cat_maxLength(18)
         
-        awm_secureTextEntry(true)
+        cat_secureTextEntry(true)
         
     }
 }
 
-@objc (AWMPasswordTitleTextFiled)
-public final class AWMPasswordTitleTextFiled: AWMLeftTitleTextField {
+@objc (CATPasswordTitleTextFiled)
+public final class CATPasswordTitleTextFiled: CATLeftTitleTextField {
     
     @objc (passwordItem)
     public final let passwordItem: UIButton = UIButton(type: .custom)
@@ -103,14 +103,14 @@ public final class AWMPasswordTitleTextFiled: AWMLeftTitleTextField {
     public override func commitInit() {
         super.commitInit()
         
-        awm_rightViewMode(.always)
+        cat_rightViewMode(.always)
         
-        awm_rightView(passwordItem)
-        awm_editType(.secret)
+        cat_rightView(passwordItem)
+        cat_editType(.secret)
         
-        awm_maxLength(18)
+        cat_maxLength(18)
         
-        awm_secureTextEntry(true)
+        cat_secureTextEntry(true)
         
     }
 }

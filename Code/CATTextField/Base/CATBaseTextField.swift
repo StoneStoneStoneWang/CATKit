@@ -1,5 +1,5 @@
 //
-//  AWMBaseTextField.swift
+//  CATBaseTextField.swift
 //  WLTFKit_Swift
 //
 //  Created by three stone 王 on 2018/11/14.
@@ -30,10 +30,10 @@ fileprivate let WLNUMBERANDCHAR_PARTTERN: String = "^[0-9a-zA-Z]*$"
 
 fileprivate let WL_ZH_CN: String = "[^\\u4E00-\\u9FA5]"
 
-fileprivate typealias WLTextChanged = (AWMBaseTextField) -> ()
+fileprivate typealias WLTextChanged = (CATBaseTextField) -> ()
 
-@objc (AWMBaseTextField)
-open class AWMBaseTextField: UITextField {
+@objc (CATBaseTextField)
+open class CATBaseTextField: UITextField {
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -92,7 +92,7 @@ open class AWMBaseTextField: UITextField {
     // MARK: maxLength 默认Int.max
     fileprivate var maxLength: Int = Int.max
     // MARK: 编辑类型 详情参考 枚举
-    fileprivate var editType: AWMTextFiledEditType = .phone {
+    fileprivate var editType: CATTextFiledEditType = .phone {
         
         willSet {
             switch newValue {
@@ -161,7 +161,7 @@ open class AWMBaseTextField: UITextField {
     
 }
 
-extension AWMBaseTextField {
+extension CATBaseTextField {
     @objc (commitInit)
     open func commitInit() {
         
@@ -186,10 +186,10 @@ extension AWMBaseTextField {
 }
 
 /** 文本框内容 样式 */
-extension AWMBaseTextField {
-    @objc (AWMTextFiledEditType)
-    public enum AWMTextFiledEditType: Int {
-        @objc (AWMTextFiledEditTypepriceEdit)
+extension CATBaseTextField {
+    @objc (CATTextFiledEditType)
+    public enum CATTextFiledEditType: Int {
+        @objc (CATTextFiledEditTypepriceEdit)
         case priceEdit
         /** 手机号 默认判断是长度11位 首位为1的+86手机号 如果是复制过去的 加入了-处理机制 比如从通讯录复制*/
         case phone
@@ -212,71 +212,71 @@ extension AWMBaseTextField {
         //        case `default` // 默认 这个在swift中弃用
     }
 }
-extension AWMBaseTextField {
+extension CATBaseTextField {
     @objc (makeAttributeWithClosure:)
-    open func makeAttribute(_ closure: @escaping (AWMBaseTextField) -> ()) {
+    open func makeAttribute(_ closure: @escaping (CATBaseTextField) -> ()) {
         
         closure(self)
     }
 }
 
 // 新增属性的处理
-extension AWMBaseTextField {
-    @objc (awm_maxLength:)
-    public func awm_maxLength(_ maxLength: Int) {
+extension CATBaseTextField {
+    @objc (cat_maxLength:)
+    public func cat_maxLength(_ maxLength: Int) {
         
         self.maxLength = maxLength
     }
-    @objc (awm_editType:)
-    public func awm_editType(_ editType: AWMTextFiledEditType) {
+    @objc (cat_editType:)
+    public func cat_editType(_ editType: CATTextFiledEditType) {
         
         self.editType = editType
     }
-    @objc (awm_pattern:)
-    public func awm_pattern(_ pattern: String) {
+    @objc (cat_pattern:)
+    public func cat_pattern(_ pattern: String) {
         
         self.pattern = pattern
     }
-    @objc (awm_textChanged:)
-    public func awm_textChanged(_ textChanged: @escaping (AWMBaseTextField) -> ()) {
+    @objc (cat_textChanged:)
+    public func cat_textChanged(_ textChanged: @escaping (CATBaseTextField) -> ()) {
         
         self.textChanged = textChanged
     }
-    @objc (awm_topLineFrame:)
-    public func awm_topLineFrame(_ frame: CGRect) {
+    @objc (cat_topLineFrame:)
+    public func cat_topLineFrame(_ frame: CGRect) {
         
         topLineFrame = frame
     }
-    @objc (awm_bottomLineFrame:)
-    public func awm_bottomLineFrame(_ frame: CGRect) {
+    @objc (cat_bottomLineFrame:)
+    public func cat_bottomLineFrame(_ frame: CGRect) {
         
         bottomLineFrame = frame
     }
-    @objc (awm_topLineColor:)
-    public func awm_topLineColor(_ color: UIColor) {
+    @objc (cat_topLineColor:)
+    public func cat_topLineColor(_ color: UIColor) {
         
         topLineColor = color
     }
-    @objc (awm_bottomLineColor:)
-    public func awm_bottomLineColor(_ color: UIColor) {
+    @objc (cat_bottomLineColor:)
+    public func cat_bottomLineColor(_ color: UIColor) {
         
         bottomLineColor = color
     }
-    @objc (awm_secureTextEntry:)
-    public func awm_secureTextEntry(_ isSecureTextEntry: Bool) {
+    @objc (cat_secureTextEntry:)
+    public func cat_secureTextEntry(_ isSecureTextEntry: Bool) {
         
         self.isSecureTextEntry = isSecureTextEntry
     }
 }
 // MARK: UITextFieldDelegate
-extension AWMBaseTextField {
+extension CATBaseTextField {
     
     open override func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        return __shouldChangeCharacters(target: textField as! AWMBaseTextField,range: range,string: string)
+        return __shouldChangeCharacters(target: textField as! CATBaseTextField,range: range,string: string)
     }
     
-    private func __shouldChangeCharacters(target: AWMBaseTextField , range: NSRange, string: String) -> Bool {
+    private func __shouldChangeCharacters(target: CATBaseTextField , range: NSRange, string: String) -> Bool {
         
         if editType == .defineLength || editType == .only_zh_cn || editType == .default {
             
@@ -342,7 +342,7 @@ extension AWMBaseTextField {
 
 
 // MARK: textFieldDidChange
-extension AWMBaseTextField {
+extension CATBaseTextField {
     @objc (greetingTextFieldChangedWithNoti:)
     open func greetingTextFieldChanged(obj: Notification) {
         
@@ -375,13 +375,13 @@ extension AWMBaseTextField {
         }
     }
     
-    @objc open func textFieldDidChange(_ textField: AWMBaseTextField) {
+    @objc open func textFieldDidChange(_ textField: CATBaseTextField) {
         
         __textDidChange(target: textField)
     }
     
     // MARK: editChanged
-    private func __textDidChange(target: AWMBaseTextField) {
+    private func __textDidChange(target: CATBaseTextField) {
         
         switch target.editType {
         case .defineLength: break
@@ -421,7 +421,7 @@ extension AWMBaseTextField {
 }
 
 // MARK: editingRect and textRect rightViewRect leftViewRect
-extension AWMBaseTextField {
+extension CATBaseTextField {
     
     
 }

@@ -10,67 +10,67 @@ import Foundation
 import UIKit
 
 extension UITextField {
-    @objc (awm_backgroundColor:)
-    public func awm_backgroundColor(_ color: UIColor) {
+    @objc (cat_backgroundColor:)
+    public func cat_backgroundColor(_ color: UIColor) {
         
         backgroundColor = color
     }
-    @objc (awm_font:)
-    public func awm_font(_ font: UIFont) {
+    @objc (cat_font:)
+    public func cat_font(_ font: UIFont) {
         
         self.font = font
     }
-    @objc (awm_textColor:)
-    public func awm_textColor(_ color: UIColor) {
+    @objc (cat_textColor:)
+    public func cat_textColor(_ color: UIColor) {
         
         textColor = color
     }
-    @objc (awm_textAlignment:)
-    public func awm_textAlignment(_ alignment: NSTextAlignment) {
+    @objc (cat_textAlignment:)
+    public func cat_textAlignment(_ alignment: NSTextAlignment) {
         
         textAlignment = alignment
     }
-    @objc (awm_keyboardType:)
-    public func awm_keyboardType(_ keyboardType: UIKeyboardType) {
+    @objc (cat_keyboardType:)
+    public func cat_keyboardType(_ keyboardType: UIKeyboardType) {
         
         self.keyboardType = keyboardType
     }
-    @objc (awm_clearButtonMode:)
-    public func awm_clearButtonMode(_ clearButtonMode: UITextField.ViewMode) {
+    @objc (cat_clearButtonMode:)
+    public func cat_clearButtonMode(_ clearButtonMode: UITextField.ViewMode) {
         
         self.clearButtonMode = clearButtonMode
         
     }
-    @objc (awm_returnKeyType:)
-    public func awm_returnKeyType(_ returnKeyType: UIReturnKeyType) {
+    @objc (cat_returnKeyType:)
+    public func cat_returnKeyType(_ returnKeyType: UIReturnKeyType) {
         
         self.returnKeyType = returnKeyType
     }
-    @objc (awm_rightViewMode:)
-    public func awm_rightViewMode(_ rightViewMode: UITextField.ViewMode) {
+    @objc (cat_rightViewMode:)
+    public func cat_rightViewMode(_ rightViewMode: UITextField.ViewMode) {
         
         self.rightViewMode = rightViewMode
     }
-    @objc (awm_leftViewMode:)
-    public func awm_leftViewMode(_ leftViewMode: UITextField.ViewMode) {
+    @objc (cat_leftViewMode:)
+    public func cat_leftViewMode(_ leftViewMode: UITextField.ViewMode) {
         
         self.leftViewMode = leftViewMode
     }
-    @objc (awm_leftView:)
-    public func awm_leftView(_ leftView: UIView) {
+    @objc (cat_leftView:)
+    public func cat_leftView(_ leftView: UIView) {
         
         self.leftView = leftView
     }
-    @objc (awm_rightView:)
-    public func awm_rightView(_ rightView: UIView) {
+    @objc (cat_rightView:)
+    public func cat_rightView(_ rightView: UIView) {
         
         self.rightView = rightView
     }
 }
 
-public typealias AWMShouldReturn = () -> Bool
+public typealias CATShouldReturn = () -> Bool
 
-public typealias AWMShouldClear = () -> Bool
+public typealias CATShouldClear = () -> Bool
 
 extension UITextField: UITextFieldDelegate {
     
@@ -79,18 +79,18 @@ extension UITextField: UITextFieldDelegate {
         return true
     }
     
-    fileprivate var shouldReturn: AWMShouldReturn! {
+    fileprivate var shouldReturn: CATShouldReturn! {
         set {
             
             objc_setAssociatedObject(self, "shouldReturn", newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
         }
         get {
             
-            return objc_getAssociatedObject(self, "shouldReturn") as? AWMShouldReturn
+            return objc_getAssociatedObject(self, "shouldReturn") as? CATShouldReturn
         }
     }
-    @objc (awm_shouldReturn:)
-    public func awm_shouldReturn(_ shouldReturn: @escaping () -> Bool) {
+    @objc (cat_shouldReturn:)
+    public func cat_shouldReturn(_ shouldReturn: @escaping () -> Bool) {
         
         self.shouldReturn = shouldReturn
     }
@@ -105,7 +105,7 @@ extension UITextField: UITextFieldDelegate {
         return shouldReturn!()
     }
     
-    fileprivate var shouldClear: AWMShouldClear! {
+    fileprivate var shouldClear: CATShouldClear! {
         
         set {
             
@@ -113,11 +113,11 @@ extension UITextField: UITextFieldDelegate {
         }
         get {
             
-            return objc_getAssociatedObject(self, "shouldClear") as? AWMShouldClear
+            return objc_getAssociatedObject(self, "shouldClear") as? CATShouldClear
         }
     }
-    @objc (awm_shouldClear:)
-    public func awm_shouldClear(_ shouldClear: @escaping () -> Bool) {
+    @objc (cat_shouldClear:)
+    public func cat_shouldClear(_ shouldClear: @escaping () -> Bool) {
         
         self.shouldClear = shouldClear
     }

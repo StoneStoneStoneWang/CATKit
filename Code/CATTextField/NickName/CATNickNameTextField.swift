@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-@objc (AWMNickNameTextField)
-public final class AWMNickNameTextField: AWMBaseTextField {
+@objc (CATNickNameTextField)
+public final class CATNickNameTextField: CATBaseTextField {
     @objc (margin)
     public var margin: CGFloat = 15
     
@@ -31,6 +31,6 @@ public final class AWMNickNameTextField: AWMBaseTextField {
     public override func commitInit() {
         super.commitInit()
         
-        awm_editType(.default)
+        cat_editType(.default)
     }
 }

@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 import WLToolsKit
 
-@objc (AWMVCodeImageTextField)
-public final class AWMVCodeImageTextField: AWMLeftImageTextField {
+@objc (CATVCodeImageTextField)
+public final class CATVCodeImageTextField: CATLeftImageTextField {
     
     public final let vcodeItem: UIButton = UIButton(type: .custom).then {
         
@@ -30,16 +30,16 @@ public final class AWMVCodeImageTextField: AWMLeftImageTextField {
     public override func commitInit() {
         super.commitInit()
         
-        awm_rightViewMode(.always)
+        cat_rightViewMode(.always)
         
-        awm_rightView(vcodeItem)
+        cat_rightView(vcodeItem)
         
         vcodeItem.sizeToFit()
     }
 }
 
-@objc (AWMVCodeTitleTextField)
-public final class AWMVCodeTitleTextField: AWMLeftTitleTextField {
+@objc (CATVCodeTitleTextField)
+public final class CATVCodeTitleTextField: CATLeftTitleTextField {
     
     public final let vcodeItem: UIButton = UIButton(type: .custom).then {
         
@@ -58,9 +58,9 @@ public final class AWMVCodeTitleTextField: AWMLeftTitleTextField {
     public override func commitInit() {
         super.commitInit()
         
-        awm_rightViewMode(.always)
+        cat_rightViewMode(.always)
         
-        awm_rightView(vcodeItem)
+        cat_rightView(vcodeItem)
         
         vcodeItem.sizeToFit()
     }
