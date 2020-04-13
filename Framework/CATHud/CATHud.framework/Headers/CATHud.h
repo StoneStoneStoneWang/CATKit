@@ -17,3 +17,4 @@ FOUNDATION_EXPORT const unsigned char CATHudVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <CATHud/PublicHeader.h>
 
 
+#import <CATHud/CATHudUtil.h>
