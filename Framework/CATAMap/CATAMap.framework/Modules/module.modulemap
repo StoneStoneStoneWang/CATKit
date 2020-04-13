@@ -1,0 +1,6 @@
+framework module CATAMap {
+  umbrella header "CATAMap.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module CATReq {
+  umbrella header "CATReq.h"
+
+  export *
+  module * { export * }
+}
