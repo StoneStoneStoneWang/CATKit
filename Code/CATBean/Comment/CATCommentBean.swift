@@ -1,5 +1,5 @@
 //
-//  AWMCommentBean.swift
+//  CATCommentBean.swift
 //  ZBean
 //
 //  Created by three stone 王 on 2019/8/30.
@@ -9,8 +9,8 @@
 import Foundation
 import ObjectMapper
 import RxDataSources
-@objc (AWMCommentBean)
-public final class AWMCommentBean: NSObject,Mappable,IdentifiableType {
+@objc (CATCommentBean)
+public final class CATCommentBean: NSObject,Mappable,IdentifiableType {
     
     public var identity: String = ""
     
@@ -37,7 +37,7 @@ public final class AWMCommentBean: NSObject,Mappable,IdentifiableType {
     
     @objc public var content: String = ""
     
-    @objc public var users: AWMUserBean!
+    @objc public var users: CATUserBean!
     
     @objc public var encoded: String = ""
     

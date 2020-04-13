@@ -1,5 +1,5 @@
 //
-//  AWMAccountBean.swift
+//  CATAccountBean.swift
 //  ZUserKit
 //
 //  Created by three stone 王 on 2019/3/15.
@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-public struct AWMAccountBean: Mappable {
+public struct CATAccountBean: Mappable {
     
     public var token: String = ""
     

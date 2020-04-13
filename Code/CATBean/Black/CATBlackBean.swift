@@ -1,5 +1,5 @@
 //
-//  AWMBlackBean.swift
+//  CATBlackBean.swift
 //  HZTC
 //
 //  Created by three stone 王 on 2019/3/21.
@@ -10,8 +10,8 @@ import Foundation
 import ObjectMapper
 import RxDataSources
 
-@objc (AWMBlackBean)
-public class AWMBlackBean: NSObject,Mappable,IdentifiableType {
+@objc (CATBlackBean)
+public class CATBlackBean: NSObject,Mappable,IdentifiableType {
     @objc public var identity: String = ""
     
     public typealias Identity = String
@@ -40,7 +40,7 @@ public class AWMBlackBean: NSObject,Mappable,IdentifiableType {
         
         content <- map["content"]
     }
-     @objc public var users: AWMUserBean!
+     @objc public var users: CATUserBean!
     
      @objc public var tableName: String = ""
     

@@ -1,5 +1,5 @@
 //
-//  AWMTranslateApi.swift
+//  CATTranslateApi.swift
 //  ZApi
 //
 //  Created by three stone 王 on 2020/3/16.
@@ -10,8 +10,8 @@ import Foundation
 import WLReqKit
 import Alamofire
 
-@objc (AWMTranslateStyle)
-public enum AWMTranslateStyle: Int {
+@objc (CATTranslateStyle)
+public enum CATTranslateStyle: Int {
     
     case id // 🇮🇩 印尼语
     
@@ -30,7 +30,7 @@ public enum AWMTranslateStyle: Int {
     case th // 🇹🇭 泰语
 }
 
-extension AWMTranslateStyle {
+extension CATTranslateStyle {
     
     public var title: String {
         
@@ -53,7 +53,7 @@ extension AWMTranslateStyle {
         }
     }
 }
-public enum AWMTranslateApi {
+public enum CATTranslateApi {
     
     case translateFromCNToKO(_ text: String ) // 韩语-> 中文
     
@@ -63,12 +63,12 @@ public enum AWMTranslateApi {
     
     case translateFromCNToTer(_ text: String) // 中文 -> 印尼语
     
-    case translateFromCNTo(_ text: String ,style: AWMTranslateStyle)
+    case translateFromCNTo(_ text: String ,style: CATTranslateStyle)
     
-    case translateToCN(_ text: String ,style: AWMTranslateStyle)
+    case translateToCN(_ text: String ,style: CATTranslateStyle)
 }
 
-extension AWMTranslateApi: WLObserverReq {
+extension CATTranslateApi: WLObserverReq {
     
     public var host: String { return "" }
     

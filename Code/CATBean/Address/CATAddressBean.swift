@@ -1,5 +1,5 @@
 //
-//  AWMAddressBean.swift
+//  CATAddressBean.swift
 //  DStoreDemo
 //
 //  Created by three stone 王 on 2019/7/16.
@@ -10,8 +10,8 @@ import Foundation
 import ObjectMapper
 import RxDataSources
 
-@objc (AWMAddressBean)
-public class AWMAddressBean: NSObject,Mappable,IdentifiableType {
+@objc (CATAddressBean)
+public class CATAddressBean: NSObject,Mappable,IdentifiableType {
     public var identity: String = ""
     
     public typealias Identity = String

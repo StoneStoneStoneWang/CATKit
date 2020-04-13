@@ -10,9 +10,9 @@ import Foundation
 import WLReqKit
 import Alamofire
 import WLToolsKit
-import AWMSign
+import CATSign
 
-extension AWMApi: WLObserverReq {
+extension CATApi: WLObserverReq {
     public var reqName: String {
         
         switch self {
@@ -98,7 +98,7 @@ extension AWMApi: WLObserverReq {
         switch self {
         case let .login(phone, password: password): return ["phone": phone,"password": password,"platform": "1" ,"deviceId": DeviceId,"deviceModel": DeviceModel]
             
-        case let .smsCode(phone): return ["phone": phone,"signName":AWMConfigure.fetchSmsSign(),"templateCode":AWMConfigure.fetchSmsLogin()]
+        case let .smsCode(phone): return ["phone": phone,"signName":CATConfigure.fetchSmsSign(),"templateCode":CATConfigure.fetchSmsLogin()]
             
         case let .swiftLogin(phone, code): return ["phone":phone,"code":code,"platform":"1","deviceModel": DeviceModel]
             
@@ -110,53 +110,53 @@ extension AWMApi: WLObserverReq {
             
         case let .updateUserInfo(key, value: value): return [key: value]
             
-        case let .smsPassword(phone): return ["phone": phone,"signName":AWMConfigure.fetchSmsSign(),"templateCode":AWMConfigure.fetchSmsPwd()]
+        case let .smsPassword(phone): return ["phone": phone,"signName":CATConfigure.fetchSmsSign(),"templateCode":CATConfigure.fetchSmsPwd()]
             
         case let .resettingPassword(phone, password: password, code: code): return ["phone": phone,"password": password,"platform": "1","code": code,"deviceModel": DeviceModel]
             
         case let .modifyPassword(oldPassword, password: password): return ["oldPassword": oldPassword,"password": password,"deviceModel": DeviceModel]
             
-        case .fetchBlackList: return ["projectId":AWMConfigure.fetchAppKey()]
+        case .fetchBlackList: return ["projectId":CATConfigure.fetchAppKey()]
             
         case .aliToken: return [:]
             
-        case let .removeBlack(encoded): return ["projectId":AWMConfigure.fetchAppKey(),"bt.encoded": encoded]
+        case let .removeBlack(encoded): return ["projectId":CATConfigure.fetchAppKey(),"bt.encoded": encoded]
             
-        case let .focus(OUsEncoded, targetEncoded: targetEncoded): return ["atn.OUsEncoded":OUsEncoded,"atn.targetEncoded":targetEncoded,"projectId": AWMConfigure.fetchAppKey(),"atn.tableName":"Users"]
-        case let .fetchMyFocus(page): return ["page":page,"projectId": AWMConfigure.fetchAppKey()]
+        case let .focus(OUsEncoded, targetEncoded: targetEncoded): return ["atn.OUsEncoded":OUsEncoded,"atn.targetEncoded":targetEncoded,"projectId": CATConfigure.fetchAppKey(),"atn.tableName":"Users"]
+        case let .fetchMyFocus(page): return ["page":page,"projectId": CATConfigure.fetchAppKey()]
             
-        case let .publish(tag,content: content): return ["cfs.tag":tag,"cfs.projectId":AWMConfigure.fetchAppKey(),"cfs.content":content]
+        case let .publish(tag,content: content): return ["cfs.tag":tag,"cfs.projectId":CATConfigure.fetchAppKey(),"cfs.content":content]
             
-        case let .fetchList(tag, page: page): return ["cfs.tag":tag,"cfs.projectId":AWMConfigure.fetchAppKey(),"page":page]
+        case let .fetchList(tag, page: page): return ["cfs.tag":tag,"cfs.projectId":CATConfigure.fetchAppKey(),"page":page]
             
-        case let .fetchMyList(tag, page: page): return ["cfs.tag":tag,"cfs.projectId":AWMConfigure.fetchAppKey(),"page":page]
+        case let .fetchMyList(tag, page: page): return ["cfs.tag":tag,"cfs.projectId":CATConfigure.fetchAppKey(),"page":page]
             
         case let .fetchComments(page, targetEncoded: targetEncoded):
             
-            return ["comment.targetEncoded":targetEncoded,"page":page,"limit": 20,"projectId": AWMConfigure.fetchAppKey()]
+            return ["comment.targetEncoded":targetEncoded,"page":page,"limit": 20,"projectId": CATConfigure.fetchAppKey()]
             
         case let .addComment(targetEncoded, content: content, tablename: tablename, type: type):
             
-            return ["comment.targetEncoded":targetEncoded,"comment.content":content,"comment.tableName": tablename,"comment.type": type,"projectId": AWMConfigure.fetchAppKey()]
+            return ["comment.targetEncoded":targetEncoded,"comment.content":content,"comment.tableName": tablename,"comment.type": type,"projectId": CATConfigure.fetchAppKey()]
             
         case let .like(targetEncoded): return ["targetEncoded":targetEncoded]
             
         case let .report(OUsEncoded, targetEncoded: targetEncoded, type: type, content: content):
             
-            return ["rt.OUsEncoded":OUsEncoded,"rt.targetEncoded":targetEncoded,"rt.type": type,"rt.content": content,"rt.projectId": AWMConfigure.fetchAppKey(),"rt.tableName": "CircleFriends"]
+            return ["rt.OUsEncoded":OUsEncoded,"rt.targetEncoded":targetEncoded,"rt.type": type,"rt.content": content,"rt.projectId": CATConfigure.fetchAppKey(),"rt.tableName": "CircleFriends"]
         case let .addBlack(OUsEncoded, targetEncoded: targetEncoded, content: content):
             
-            return ["bt.OUsEncoded":OUsEncoded,"bt.targetEncoded":targetEncoded,"bt.content": content,"projectId": AWMConfigure.fetchAppKey(),"bt.tableName": "CircleFriends"]
+            return ["bt.OUsEncoded":OUsEncoded,"bt.targetEncoded":targetEncoded,"bt.content": content,"projectId": CATConfigure.fetchAppKey(),"bt.tableName": "CircleFriends"]
             
-        case let .attention(OUsEncoded, targetEncoded: targetEncoded): return ["atn.OUsEncoded":OUsEncoded,"atn.targetEncoded":targetEncoded,"projectId": AWMConfigure.fetchAppKey(),"atn.tableName":"Users"]
+        case let .attention(OUsEncoded, targetEncoded: targetEncoded): return ["atn.OUsEncoded":OUsEncoded,"atn.targetEncoded":targetEncoded,"projectId": CATConfigure.fetchAppKey(),"atn.tableName":"Users"]
             
-        case let .fetchPublish(tag, page: page, userId: userId): return ["cfs.projectId":AWMConfigure.fetchAppKey(),"cfs.tag": tag,"page": page,"userId": userId]
+        case let .fetchPublish(tag, page: page, userId: userId): return ["cfs.projectId":CATConfigure.fetchAppKey(),"cfs.tag": tag,"page": page,"userId": userId]
             
         case .fetchAddress: return [:]
             
         case let .deleteAddress(encode): return ["pe.encoded":encode]
             
-        case .fetchBanners: return ["cfs.tag":"","cfs.projectId":AWMConfigure.fetchAppKey(),"page":1]
+        case .fetchBanners: return ["cfs.tag":"","cfs.projectId":CATConfigure.fetchAppKey(),"page":1]
             
         case let .editAddress(encode, name: name, phone: phone, plcl: plcl, plclne: plclne, city: city, cityne: cityne, region: region, regionne: regionne, addr: addr, isdef: isdef, zipCode: zipCode):
             
@@ -176,7 +176,7 @@ extension AWMApi: WLObserverReq {
             
             return result
             
-        case .deleteMyCircle(let encode): return ["cfs.encoded": encode,"cfs.projectId":AWMConfigure.fetchAppKey()]
+        case .deleteMyCircle(let encode): return ["cfs.encoded": encode,"cfs.projectId":CATConfigure.fetchAppKey()]
             
         case .fetchAreaJson: return [:]
             
@@ -195,17 +195,17 @@ extension AWMApi: WLObserverReq {
             
         case .updateCircle(let tag, content: let content, encode: let encode):
             
-            return ["cfs.tag":tag,"cfs.projectId":AWMConfigure.fetchAppKey(),"cfs.content":content,"cfs.encoded": encode]
+            return ["cfs.tag":tag,"cfs.projectId":CATConfigure.fetchAppKey(),"cfs.content":content,"cfs.encoded": encode]
             
         case .fetchSystemMsg(let page):
             
-            return ["projectId":AWMConfigure.fetchAppKey(),"page":page,"limit":"10"]
+            return ["projectId":CATConfigure.fetchAppKey(),"page":page,"limit":"10"]
         case .fetchFirstMsg:
             
-            return ["projectId":AWMConfigure.fetchAppKey(),"page":"1","limit":"1"]
+            return ["projectId":CATConfigure.fetchAppKey(),"page":"1","limit":"1"]
         case .readMsg(let id):
             
-            return ["projectId":AWMConfigure.fetchAppKey(),"id":id]
+            return ["projectId":CATConfigure.fetchAppKey(),"id":id]
         }
         
     }
@@ -231,7 +231,7 @@ extension AWMApi: WLObserverReq {
         
         switch self {
             
-        default: return AWMConfigure.fetchDomain()
+        default: return CATConfigure.fetchDomain()
             
         }
     }

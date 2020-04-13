@@ -1,5 +1,5 @@
 //
-//  AWMGenderType.swift
+//  CATGenderType.swift
 //  ZBean
 //
 //  Created by three stone 王 on 2019/8/22.
@@ -8,8 +8,8 @@
 
 import Foundation
 
-@objc(AWMGenderType)
-public enum AWMGenderType: Int ,Codable {
+@objc(CATGenderType)
+public enum CATGenderType: Int ,Codable {
     
     case unknown = 0
     
@@ -30,7 +30,7 @@ public enum AWMGenderType: Int ,Codable {
     }
 }
 
-extension AWMGenderType {
+extension CATGenderType {
     
     public var gender: String {
         

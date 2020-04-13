@@ -1,5 +1,5 @@
 //
-//  AWMCircleBean.swift
+//  CATCircleBean.swift
 //  WLUserKitDemo
 //
 //  Created by three stone 王 on 2019/4/30.
@@ -12,8 +12,8 @@ import RxDataSources
 import WLToolsKit
 import UIKit
 
-@objc (AWMCircleBean)
-public class AWMCircleBean: NSObject, Mappable , IdentifiableType {
+@objc (CATCircleBean)
+public class CATCircleBean: NSObject, Mappable , IdentifiableType {
     
     @objc public var identity: String = ""
     
@@ -62,17 +62,17 @@ public class AWMCircleBean: NSObject, Mappable , IdentifiableType {
     
     @objc public var tag: String = ""
     
-    @objc public var users: AWMUserBean!
+    @objc public var users: CATUserBean!
     
     @objc public var countComment: Int = Int.max
     
     @objc public var isattention: Bool = false
     
-    @objc public var contentMap: [AWMKeyValueBean] {
+    @objc public var contentMap: [CATKeyValueBean] {
         
         let res = WLJsonCast.cast(argu: content) as! [[String: String]]
         
-        return res.map({ AWMKeyValueBean(JSON: $0)! })
+        return res.map({ CATKeyValueBean(JSON: $0)! })
     }
     
     @objc public var videoImage: UIImage!

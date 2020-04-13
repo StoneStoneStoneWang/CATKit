@@ -1,5 +1,5 @@
 //
-//  AWMAreaBean.swift
+//  CATAreaBean.swift
 //  DAddressDemo
 //
 //  Created by three stone 王 on 2019/7/16.
@@ -10,8 +10,8 @@ import Foundation
 import ObjectMapper
 import RxDataSources
 
-@objc (AWMAreaBean)
-public class AWMAreaBean: NSObject,Mappable ,IdentifiableType {
+@objc (CATAreaBean)
+public class CATAreaBean: NSObject,Mappable ,IdentifiableType {
     
     public var identity: String = NSUUID().uuidString
     
@@ -33,7 +33,7 @@ public class AWMAreaBean: NSObject,Mappable ,IdentifiableType {
     
     @objc public var typename: String = ""
     
-    @objc public var addrList: [AWMAreaBean] = []
+    @objc public var addrList: [CATAreaBean] = []
     
     required public init?(map: Map) { }
     

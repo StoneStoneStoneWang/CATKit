@@ -1,5 +1,5 @@
 //
-//  AWMFocusBean.swift
+//  CATFocusBean.swift
 //  WLUserKitDemo
 //
 //  Created by three stone 王 on 2019/4/4.
@@ -10,8 +10,8 @@ import Foundation
 import ObjectMapper
 import RxDataSources
 
-@objc (AWMFocusBean)
-public class AWMFocusBean: NSObject,Mappable,IdentifiableType {
+@objc (CATFocusBean)
+public class CATFocusBean: NSObject,Mappable,IdentifiableType {
     @objc public var identity: String = ""
     
     public typealias Identity = String
@@ -40,7 +40,7 @@ public class AWMFocusBean: NSObject,Mappable,IdentifiableType {
         
         content <- map["content"]
     }
-    @objc public var users: AWMUserBean!
+    @objc public var users: CATUserBean!
     
     @objc public var tableName: String = ""
     

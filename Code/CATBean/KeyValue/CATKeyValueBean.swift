@@ -1,5 +1,5 @@
 //
-//  AWMKeyValueBean.swift
+//  CATKeyValueBean.swift
 //  WLUserKitDemo
 //
 //  Created by three stone 王 on 2019/4/30.
@@ -10,8 +10,8 @@ import Foundation
 import ObjectMapper
 import RxDataSources
 
-@objc (AWMKeyValueBean)
-public class AWMKeyValueBean: NSObject,Mappable ,IdentifiableType {
+@objc (CATKeyValueBean)
+public class CATKeyValueBean: NSObject,Mappable ,IdentifiableType {
     
     public var identity: String = NSUUID().uuidString
     

@@ -1,5 +1,5 @@
 //
-//  AWMCommodityBean.swift
+//  CATCommodityBean.swift
 //  DStoreDemo
 //
 //  Created by three stone 王 on 2019/7/18.
@@ -11,8 +11,8 @@ import ObjectMapper
 import RxDataSources
 import WLToolsKit
 
-@objc (AWMCommodityBean)
-public class AWMCommodityBean: NSObject, Mappable , IdentifiableType{
+@objc (CATCommodityBean)
+public class CATCommodityBean: NSObject, Mappable , IdentifiableType{
     
     public var identity: String = ""
     
@@ -57,20 +57,20 @@ public class AWMCommodityBean: NSObject, Mappable , IdentifiableType{
     
     @objc public var tag: String = ""
     
-    @objc public var users: AWMUserBean!
+    @objc public var users: CATUserBean!
     
     @objc public var countComment: Int = Int.max
     
-    @objc public var contentMap: [AWMKeyValueBean] {
+    @objc public var contentMap: [CATKeyValueBean] {
         
         let res = WLJsonCast.cast(argu: content) as! [[String: String]]
         
-        return res.map({ AWMKeyValueBean(JSON: $0)! })
+        return res.map({ CATKeyValueBean(JSON: $0)! })
     }
     
-    @objc public var imgs: [AWMKeyValueBean] {
+    @objc public var imgs: [CATKeyValueBean] {
         
-        var result: [AWMKeyValueBean] = []
+        var result: [CATKeyValueBean] = []
         
         for item in contentMap {
             

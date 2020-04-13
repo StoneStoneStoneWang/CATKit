@@ -1,5 +1,5 @@
 //
-//  AWMApi.swift
+//  CATApi.swift
 //  ZUserKit
 //
 //  Created by three stone 王 on 2019/3/14.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum AWMApi {
+public enum CATApi {
     
     case login(_ phone: String,password: String)
     

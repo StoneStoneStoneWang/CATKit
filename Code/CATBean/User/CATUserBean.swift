@@ -1,5 +1,5 @@
 //
-//  AWMUserBean.swift
+//  CATUserBean.swift
 //  ZUserKit
 //
 //  Created by three stone 王 on 2019/3/15.
@@ -9,8 +9,8 @@
 import Foundation
 import ObjectMapper
 
-@objc (AWMUserBean)
-public class AWMUserBean: NSObject, Mappable ,NSCoding {
+@objc (CATUserBean)
+public class CATUserBean: NSObject, Mappable ,NSCoding {
     public required init?(coder aDecoder: NSCoder) {
         
         phone = aDecoder.decodeObject(forKey: "phone") as! String
@@ -56,9 +56,9 @@ public class AWMUserBean: NSObject, Mappable ,NSCoding {
     
     @objc public var sex: Int = Int.max
     
-    public var gender: AWMGenderType {
+    public var gender: CATGenderType {
         
-        return AWMGenderType(temp: sex)
+        return CATGenderType(temp: sex)
     }
     
     @objc public var signature: String = ""
