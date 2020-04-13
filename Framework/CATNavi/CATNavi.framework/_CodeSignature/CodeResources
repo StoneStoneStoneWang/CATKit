@@ -8,6 +8,18 @@
 		<data>
 		UGbSdbhD/j2glcteInpMjGFBKvc=
 		</data>
+		<key>Headers/CATNavigationController.h</key>
+		<data>
+		k01zSpMmM1YYMO/JmgYJSYM1vHY=
+		</data>
+		<key>Headers/UIBarButtonItem+CAT.h</key>
+		<data>
+		+DbhwKTRZ1ALeRjzZsgK6dNeKaw=
+		</data>
+		<key>Headers/UINavigationBar+CAT.h</key>
+		<data>
+		ygC1BomBBOIokJ2aJn4XxgPxfDE=
+		</data>
 		<key>Info.plist</key>
 		<data>
 		y8r4YaZM803fkHqez34aZmz1Z0I=
@@ -28,6 +40,39 @@
 			<key>hash2</key>
 			<data>
 			BoxtVmy4fTAadCYxiZeSLJ0r8thCDj5iAlJzCYK8Idk=
+			</data>
+		</dict>
+		<key>Headers/CATNavigationController.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			k01zSpMmM1YYMO/JmgYJSYM1vHY=
+			</data>
+			<key>hash2</key>
+			<data>
+			rODw4o80lTcffbGKDMEAV+k5200w7DR7qLsW0kLRaWM=
+			</data>
+		</dict>
+		<key>Headers/UIBarButtonItem+CAT.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			+DbhwKTRZ1ALeRjzZsgK6dNeKaw=
+			</data>
+			<key>hash2</key>
+			<data>
+			CrHP5fS0tUdn5jejLU8xfOWS5J+8fJK+Yib47Uy6pck=
+			</data>
+		</dict>
+		<key>Headers/UINavigationBar+CAT.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ygC1BomBBOIokJ2aJn4XxgPxfDE=
+			</data>
+			<key>hash2</key>
+			<data>
+			CRoJsibLXdoHLnDgIBlFDSOfjBj2Tfa0pIYRHREVgWA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
