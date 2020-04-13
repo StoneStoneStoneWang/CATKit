@@ -1,0 +1,6 @@
+framework module CATSign {
+  umbrella header "CATSign.h"
+
+  export *
+  module * { export * }
+}

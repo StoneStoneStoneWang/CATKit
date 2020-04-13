@@ -1,0 +1,6 @@
+framework module CATCollection {
+  umbrella header "CATCollection.h"
+
+  export *
+  module * { export * }
+}

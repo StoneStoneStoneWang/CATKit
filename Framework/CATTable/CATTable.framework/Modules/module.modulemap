@@ -1,0 +1,6 @@
+framework module CATTable {
+  umbrella header "CATTable.h"
+
+  export *
+  module * { export * }
+}
