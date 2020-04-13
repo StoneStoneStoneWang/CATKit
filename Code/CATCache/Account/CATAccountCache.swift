@@ -1,5 +1,5 @@
 //
-//  AWMAccountCache.swift
+//  CATAccountCache.swift
 //  ZUserKit
 //
 //  Created by three stone 王 on 2019/3/15.
@@ -7,12 +7,12 @@
 //
 
 import Foundation
-import AWMBean
+import CATBean
 
-@objc (AWMAccountCache)
-public final class AWMAccountCache: NSObject {
+@objc (CATAccountCache)
+public final class CATAccountCache: NSObject {
     @objc (shared)
-    public static let `default`: AWMAccountCache = AWMAccountCache()
+    public static let `default`: CATAccountCache = CATAccountCache()
     
     private override init() { }
     
@@ -23,7 +23,7 @@ public final class AWMAccountCache: NSObject {
     @objc public var uid: String = ""
 }
 
-extension AWMAccountCache {
+extension CATAccountCache {
     
     @objc public func isPushOn() -> Bool {
         
@@ -48,7 +48,7 @@ extension AWMAccountCache {
         return !token.isEmpty && token != ""
     }
     
-    public func saveAccount(acc: AWMAccountBean) -> AWMAccountBean {
+    public func saveAccount(acc: CATAccountBean) -> CATAccountBean {
         
         UserDefaults.standard.setValue(acc.token, forKey: "token")
         
@@ -67,14 +67,14 @@ extension AWMAccountCache {
         return acc
     }
     
-    public func queryAccount() -> AWMAccountBean! {
+    public func queryAccount() -> CATAccountBean! {
         
         guard let id = UserDefaults.standard.object(forKey: "uid") else {
             
             return nil
         }
         
-        var acc = AWMAccountBean()
+        var acc = CATAccountBean()
         
         acc.token = UserDefaults.standard.object(forKey: "token") as? String ?? ""
         
@@ -100,7 +100,7 @@ extension AWMAccountCache {
             return
         }
         
-        var acc = AWMAccountBean()
+        var acc = CATAccountBean()
         
         acc.token = UserDefaults.standard.object(forKey: "token") as? String ?? ""
         
