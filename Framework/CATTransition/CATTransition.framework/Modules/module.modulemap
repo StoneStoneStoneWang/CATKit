@@ -1,0 +1,6 @@
+framework module CATTransition {
+  umbrella header "CATTransition.h"
+
+  export *
+  module * { export * }
+}
