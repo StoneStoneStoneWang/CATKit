@@ -13,7 +13,7 @@ import RxDataSources
 @objc (CATMessageBean)
 public final class CATMessageBean: NSObject,Mappable,IdentifiableType {
     
-    public var identity: String = ""
+    public var identity: String = NSUUID().uuidString
     
     public typealias Identity = String
     
@@ -27,8 +27,6 @@ public final class CATMessageBean: NSObject,Mappable,IdentifiableType {
         
         encoded  <- map["encoded"]
         
-        identity  <- map["encoded"]
-        
         dect  <- map["dect"]
         
         isread  <- map["isread"]
@@ -38,7 +36,7 @@ public final class CATMessageBean: NSObject,Mappable,IdentifiableType {
         mid  <- map["id"]
     }
     
-    @objc public var intime: Int = Int.max
+    @objc public var intime: String = ""
     
     @objc public var dect: String = ""
     

@@ -164,7 +164,7 @@
 
 #if CATCarouselOne || CATCarouselThree
 
-#define CATCarouselHeight KSSCREEN_WIDTH / 3
+#define CATCarouselHeight KSSCREEN_WIDTH / 2
 
 @interface CATCarouselFormOneLayout : UICollectionViewFlowLayout
 
@@ -179,7 +179,7 @@
     
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
-    CGSize itemSize = CGSizeMake(KSSCREEN_WIDTH, KSSCREEN_WIDTH / 3);
+    CGSize itemSize = CGSizeMake(KSSCREEN_WIDTH, KSSCREEN_WIDTH / 2);
     
     self.itemSize = itemSize;
     
@@ -202,7 +202,7 @@
 #define LEFT_OFFSET 60
 @interface CATCarouselFormTwoLayout : UICollectionViewFlowLayout
 
-#define CATCarouselHeight KSSCREEN_WIDTH / 3
+#define CATCarouselHeight KSSCREEN_WIDTH / 2
 @end
 @implementation CATCarouselFormTwoLayout
 

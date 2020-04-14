@@ -36,7 +36,7 @@ struct CATMessageViewModel: WLBaseViewModel {
         
         let zip: Observable<(CATMessageBean,IndexPath)>
         
-        let tableData: BehaviorRelay<[CATMessageBean]> = BehaviorRelay<[CATMessageBean]>(value: [])
+        let collectionData: BehaviorRelay<[CATMessageBean]> = BehaviorRelay<[CATMessageBean]>(value: [])
         
         let endHeaderRefreshing: Driver<WLBaseResult>
     }
@@ -66,7 +66,7 @@ struct CATMessageViewModel: WLBaseViewModel {
                 switch result {
                 case let .fetchList(items):
                     
-                    output.tableData.accept(items as! [CATMessageBean])
+                    output.collectionData.accept(items as! [CATMessageBean])
                     
                 default: break
                 }

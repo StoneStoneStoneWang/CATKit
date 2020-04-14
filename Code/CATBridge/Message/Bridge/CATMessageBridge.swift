@@ -48,9 +48,9 @@ extension CATMessageBridge {
         
         viewModel
             .output
-            .tableData
+            .collectionData
             .asDriver()
-            .map({ $0.map({ Section(header: $0.encoded, items: [$0]) }) })
+            .map({ $0.map({ Section(header: "\($0.mid)", items: [$0]) }) })
             .drive(vc.collectionView.rx.items(dataSource: dataSource))
             .disposed(by: disposed)
         
@@ -111,7 +111,7 @@ extension CATMessageBridge: UITableViewDelegate {
             .messageRead(message.encoded)
             .drive(onNext: { [unowned self] (result) in
                 
-                let values = self.viewModel.output.tableData.value
+                let values = self.viewModel.output.collectionData.value
                 
                 if let idx = values.firstIndex(where: { $0.encoded == message.encoded }) {
                     
