@@ -10,59 +10,59 @@ import Foundation
 import UIKit
 
 extension UITextField {
-    @objc (cat_backgroundColor:)
-    public func cat_backgroundColor(_ color: UIColor) {
+    @objc (CAT_backgroundColor:)
+    public func CAT_backgroundColor(_ color: UIColor) {
         
         backgroundColor = color
     }
-    @objc (cat_font:)
-    public func cat_font(_ font: UIFont) {
+    @objc (CAT_font:)
+    public func CAT_font(_ font: UIFont) {
         
         self.font = font
     }
-    @objc (cat_textColor:)
-    public func cat_textColor(_ color: UIColor) {
+    @objc (CAT_textColor:)
+    public func CAT_textColor(_ color: UIColor) {
         
         textColor = color
     }
-    @objc (cat_textAlignment:)
-    public func cat_textAlignment(_ alignment: NSTextAlignment) {
+    @objc (CAT_textAlignment:)
+    public func CAT_textAlignment(_ alignment: NSTextAlignment) {
         
         textAlignment = alignment
     }
-    @objc (cat_keyboardType:)
-    public func cat_keyboardType(_ keyboardType: UIKeyboardType) {
+    @objc (CAT_keyboardType:)
+    public func CAT_keyboardType(_ keyboardType: UIKeyboardType) {
         
         self.keyboardType = keyboardType
     }
-    @objc (cat_clearButtonMode:)
-    public func cat_clearButtonMode(_ clearButtonMode: UITextField.ViewMode) {
+    @objc (CAT_clearButtonMode:)
+    public func CAT_clearButtonMode(_ clearButtonMode: UITextField.ViewMode) {
         
         self.clearButtonMode = clearButtonMode
         
     }
-    @objc (cat_returnKeyType:)
-    public func cat_returnKeyType(_ returnKeyType: UIReturnKeyType) {
+    @objc (CAT_returnKeyType:)
+    public func CAT_returnKeyType(_ returnKeyType: UIReturnKeyType) {
         
         self.returnKeyType = returnKeyType
     }
-    @objc (cat_rightViewMode:)
-    public func cat_rightViewMode(_ rightViewMode: UITextField.ViewMode) {
+    @objc (CAT_rightViewMode:)
+    public func CAT_rightViewMode(_ rightViewMode: UITextField.ViewMode) {
         
         self.rightViewMode = rightViewMode
     }
-    @objc (cat_leftViewMode:)
-    public func cat_leftViewMode(_ leftViewMode: UITextField.ViewMode) {
+    @objc (CAT_leftViewMode:)
+    public func CAT_leftViewMode(_ leftViewMode: UITextField.ViewMode) {
         
         self.leftViewMode = leftViewMode
     }
-    @objc (cat_leftView:)
-    public func cat_leftView(_ leftView: UIView) {
+    @objc (CAT_leftView:)
+    public func CAT_leftView(_ leftView: UIView) {
         
         self.leftView = leftView
     }
-    @objc (cat_rightView:)
-    public func cat_rightView(_ rightView: UIView) {
+    @objc (CAT_rightView:)
+    public func CAT_rightView(_ rightView: UIView) {
         
         self.rightView = rightView
     }
@@ -89,8 +89,8 @@ extension UITextField: UITextFieldDelegate {
             return objc_getAssociatedObject(self, "shouldReturn") as? CATShouldReturn
         }
     }
-    @objc (cat_shouldReturn:)
-    public func cat_shouldReturn(_ shouldReturn: @escaping () -> Bool) {
+    @objc (CAT_shouldReturn:)
+    public func CAT_shouldReturn(_ shouldReturn: @escaping () -> Bool) {
         
         self.shouldReturn = shouldReturn
     }
@@ -116,8 +116,8 @@ extension UITextField: UITextFieldDelegate {
             return objc_getAssociatedObject(self, "shouldClear") as? CATShouldClear
         }
     }
-    @objc (cat_shouldClear:)
-    public func cat_shouldClear(_ shouldClear: @escaping () -> Bool) {
+    @objc (CAT_shouldClear:)
+    public func CAT_shouldClear(_ shouldClear: @escaping () -> Bool) {
         
         self.shouldClear = shouldClear
     }

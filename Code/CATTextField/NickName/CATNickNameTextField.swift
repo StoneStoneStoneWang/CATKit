@@ -31,6 +31,6 @@ public final class CATNickNameTextField: CATBaseTextField {
     public override func commitInit() {
         super.commitInit()
         
-        cat_editType(.default)
+        CAT_editType(.default)
     }
 }

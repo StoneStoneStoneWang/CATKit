@@ -14,7 +14,7 @@ import CATReq
 import CATUpload
 import CATSign
 
-public func catDictResp<T : WLObserverReq>(_ req: T) -> Observable<[String:Any]> {
+public func CATDictResp<T : WLObserverReq>(_ req: T) -> Observable<[String:Any]> {
     
     return Observable<[String:Any]>.create({ (observer) -> Disposable in
         
@@ -42,7 +42,7 @@ public func catDictResp<T : WLObserverReq>(_ req: T) -> Observable<[String:Any]>
     })
 }
 
-public func catArrayResp<T : WLObserverReq>(_ req: T) -> Observable<[Any]> {
+public func CATArrayResp<T : WLObserverReq>(_ req: T) -> Observable<[Any]> {
     
     return Observable<[Any]>.create({ (observer) -> Disposable in
         
@@ -71,7 +71,7 @@ public func catArrayResp<T : WLObserverReq>(_ req: T) -> Observable<[Any]> {
 }
 
 // 无返回值的 在data里
-public func catVoidResp<T : WLObserverReq>(_ req: T) -> Observable<Void> {
+public func CATVoidResp<T : WLObserverReq>(_ req: T) -> Observable<Void> {
     
     return Observable<Void>.create({ (observer) -> Disposable in
         
@@ -100,7 +100,7 @@ public func catVoidResp<T : WLObserverReq>(_ req: T) -> Observable<Void> {
     })
 }
 
-public func catAliResp<T : WLObserverReq>(_ req: T) -> Observable<CATALCredentialsBean> {
+public func CATAliResp<T : WLObserverReq>(_ req: T) -> Observable<CATALCredentialsBean> {
     
     return Observable<CATALCredentialsBean>.create({ (observer) -> Disposable in
         
@@ -129,7 +129,7 @@ public func catAliResp<T : WLObserverReq>(_ req: T) -> Observable<CATALCredentia
     })
 }
 
-public func catUploadImgResp(_ data: Data ,file: String ,param: CATALCredentialsBean) -> Observable<String> {
+public func CATUploadImgResp(_ data: Data ,file: String ,param: CATALCredentialsBean) -> Observable<String> {
     
     return Observable<String>.create({ (observer) -> Disposable in
         
@@ -152,7 +152,7 @@ public func catUploadImgResp(_ data: Data ,file: String ,param: CATALCredentials
     })
 }
 
-public func catUploadPubImgResp(_ data: Data ,file: String ,param: CATALCredentialsBean) -> Observable<String> {
+public func CATUploadPubImgResp(_ data: Data ,file: String ,param: CATALCredentialsBean) -> Observable<String> {
     
     return Observable<String>.create({ (observer) -> Disposable in
         
@@ -174,7 +174,7 @@ public func catUploadPubImgResp(_ data: Data ,file: String ,param: CATALCredenti
         return Disposables.create { }
     })
 }
-public func catUploadVideoResp(_ data: Data ,file: String ,param: CATALCredentialsBean) -> Observable<String> {
+public func CATUploadVideoResp(_ data: Data ,file: String ,param: CATALCredentialsBean) -> Observable<String> {
     
     return Observable<String>.create({ (observer) -> Disposable in
         
@@ -197,7 +197,7 @@ public func catUploadVideoResp(_ data: Data ,file: String ,param: CATALCredentia
     })
 }
 
-public func catTranslateResp<T : WLObserverReq>(_ req: T) -> Observable<[String:Any]> {
+public func CATTranslateResp<T : WLObserverReq>(_ req: T) -> Observable<[String:Any]> {
     
     return Observable<[String:Any]>.create({ (observer) -> Disposable in
         
@@ -216,7 +216,7 @@ public func catTranslateResp<T : WLObserverReq>(_ req: T) -> Observable<[String:
     })
 }
 
-public func catAreaResp<T : WLObserverReq>(_ req: T) -> Observable<[Any]> {
+public func CATAreaResp<T : WLObserverReq>(_ req: T) -> Observable<[Any]> {
     
     return Observable<[Any]>.create({ (observer) -> Disposable in
         

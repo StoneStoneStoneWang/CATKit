@@ -51,13 +51,13 @@ public final class CATPasswordImageTextFiled: CATLeftImageTextField {
     public override func commitInit() {
         super.commitInit()
         
-        cat_rightViewMode(.always)
+        CAT_rightViewMode(.always)
     
-        cat_editType(.secret)
+        CAT_editType(.secret)
         
-        cat_maxLength(18)
+        CAT_maxLength(18)
         
-        cat_secureTextEntry(true)
+        CAT_secureTextEntry(true)
         
     }
 }
@@ -103,14 +103,15 @@ public final class CATPasswordTitleTextFiled: CATLeftTitleTextField {
     public override func commitInit() {
         super.commitInit()
         
-        cat_rightViewMode(.always)
+        CAT_rightViewMode(.always)
         
-        cat_rightView(passwordItem)
-        cat_editType(.secret)
+        CAT_rightView(passwordItem)
         
-        cat_maxLength(18)
+        CAT_editType(.secret)
         
-        cat_secureTextEntry(true)
+        CAT_maxLength(18)
+        
+        CAT_secureTextEntry(true)
         
     }
 }

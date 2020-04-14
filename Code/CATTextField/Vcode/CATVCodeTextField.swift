@@ -30,9 +30,9 @@ public final class CATVCodeImageTextField: CATLeftImageTextField {
     public override func commitInit() {
         super.commitInit()
         
-        cat_rightViewMode(.always)
+        CAT_rightViewMode(.always)
         
-        cat_rightView(vcodeItem)
+        CAT_rightView(vcodeItem)
         
         vcodeItem.sizeToFit()
     }
@@ -58,9 +58,9 @@ public final class CATVCodeTitleTextField: CATLeftTitleTextField {
     public override func commitInit() {
         super.commitInit()
         
-        cat_rightViewMode(.always)
+        CAT_rightViewMode(.always)
         
-        cat_rightView(vcodeItem)
+        CAT_rightView(vcodeItem)
         
         vcodeItem.sizeToFit()
     }

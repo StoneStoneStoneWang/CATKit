@@ -222,48 +222,48 @@ extension CATBaseTextField {
 
 // 新增属性的处理
 extension CATBaseTextField {
-    @objc (cat_maxLength:)
-    public func cat_maxLength(_ maxLength: Int) {
+    @objc (CAT_maxLength:)
+    public func CAT_maxLength(_ maxLength: Int) {
         
         self.maxLength = maxLength
     }
-    @objc (cat_editType:)
-    public func cat_editType(_ editType: CATTextFiledEditType) {
+    @objc (CAT_editType:)
+    public func CAT_editType(_ editType: CATTextFiledEditType) {
         
         self.editType = editType
     }
-    @objc (cat_pattern:)
-    public func cat_pattern(_ pattern: String) {
+    @objc (CAT_pattern:)
+    public func CAT_pattern(_ pattern: String) {
         
         self.pattern = pattern
     }
-    @objc (cat_textChanged:)
-    public func cat_textChanged(_ textChanged: @escaping (CATBaseTextField) -> ()) {
+    @objc (CAT_textChanged:)
+    public func CAT_textChanged(_ textChanged: @escaping (CATBaseTextField) -> ()) {
         
         self.textChanged = textChanged
     }
-    @objc (cat_topLineFrame:)
-    public func cat_topLineFrame(_ frame: CGRect) {
+    @objc (CAT_topLineFrame:)
+    public func CAT_topLineFrame(_ frame: CGRect) {
         
         topLineFrame = frame
     }
-    @objc (cat_bottomLineFrame:)
-    public func cat_bottomLineFrame(_ frame: CGRect) {
+    @objc (CAT_bottomLineFrame:)
+    public func CAT_bottomLineFrame(_ frame: CGRect) {
         
         bottomLineFrame = frame
     }
-    @objc (cat_topLineColor:)
-    public func cat_topLineColor(_ color: UIColor) {
+    @objc (CAT_topLineColor:)
+    public func CAT_topLineColor(_ color: UIColor) {
         
         topLineColor = color
     }
-    @objc (cat_bottomLineColor:)
-    public func cat_bottomLineColor(_ color: UIColor) {
+    @objc (CAT_bottomLineColor:)
+    public func CAT_bottomLineColor(_ color: UIColor) {
         
         bottomLineColor = color
     }
-    @objc (cat_secureTextEntry:)
-    public func cat_secureTextEntry(_ isSecureTextEntry: Bool) {
+    @objc (CAT_secureTextEntry:)
+    public func CAT_secureTextEntry(_ isSecureTextEntry: Bool) {
         
         self.isSecureTextEntry = isSecureTextEntry
     }
