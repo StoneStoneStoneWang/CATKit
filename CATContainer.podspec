@@ -209,16 +209,16 @@ Pod::Spec.new do |spec|
   #    focus.dependency 'JXTAlertManager'
   #  end
   
-  #  # 举报 举报
-  #  spec.subspec 'Report' do |report|
-  #
-  #    report.source_files = "Code/CATContainer/Report/*.{h,m}"
-  #    report.dependency 'CATConfig'
-  #    report.dependency 'CATBridge/Report/Bridge'
-  #    report.dependency 'Masonry'
-  #    report.dependency 'CATTable'
-  #    report.dependency 'JXTAlertManager'
-  #  end
+  # 举报 举报
+    spec.subspec 'Report' do |report|
+  
+      report.source_files = "Code/CATContainer/Report/*.{h,m}"
+      report.dependency 'CATConfig'
+      report.dependency 'CATBridge/Report/Bridge'
+      report.dependency 'Masonry'
+      report.dependency 'CATTable'
+      report.dependency 'JXTAlertManager'
+    end
   
   
   # 地址 address
