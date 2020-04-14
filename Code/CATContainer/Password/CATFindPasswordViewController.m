@@ -160,8 +160,6 @@
         
         [_completeItem setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         
-        _completeItem.layer.cornerRadius = 24;
-        
         _completeItem.layer.masksToBounds = true;
         
         _completeItem.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -352,9 +350,7 @@
     }];
     
     self.phone.backgroundColor = [UIColor whiteColor];
-    
-    self.phone.layer.cornerRadius = 24;
-    
+
     self.phone.layer.masksToBounds = true;
     
     [self.phone CAT_bottomLineFrame:CGRectMake(0, 47, w - 30, 1)];
@@ -386,8 +382,6 @@
     
     self.vcode.backgroundColor = [UIColor whiteColor];
     
-    self.vcode.layer.cornerRadius = 24;
-    
     self.vcode.layer.masksToBounds = true;
     
     [self.vcode CAT_bottomLineFrame:CGRectMake(0, 47, w - 30, 1)];
@@ -404,9 +398,7 @@
     }];
     
     self.password.backgroundColor = [UIColor whiteColor];
-    
-    self.password.layer.cornerRadius = 24;
-    
+
     self.password.layer.masksToBounds = true;
     
     [self.password CAT_bottomLineFrame:CGRectMake(0, 47, w - 30, 1)];

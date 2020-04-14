@@ -176,8 +176,6 @@
         
         [_completeItem setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         
-        _completeItem.layer.cornerRadius = 24;
-        
         _completeItem.layer.masksToBounds = true;
         
         _completeItem.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -366,8 +364,6 @@
     
     self.oldpassword.backgroundColor = [UIColor whiteColor];
     
-    self.oldpassword.layer.cornerRadius = 24;
-    
     self.oldpassword.layer.masksToBounds = true;
     
     [self.oldpassword CAT_bottomLineFrame:CGRectMake(0, 47, w - 30, 1)];
@@ -385,8 +381,6 @@
     
     self.password.backgroundColor = [UIColor whiteColor];
     
-    self.password.layer.cornerRadius = 24;
-    
     self.password.layer.masksToBounds = true;
     
     [self.password CAT_bottomLineFrame:CGRectMake(0, 47, w - 30, 1)];
@@ -403,8 +397,6 @@
     }];
     
     self.againpassword.backgroundColor = [UIColor whiteColor];
-    
-    self.againpassword.layer.cornerRadius = 24;
     
     self.againpassword.layer.masksToBounds = true;
     
@@ -461,8 +453,6 @@
     }];
     
     self.oldpassword.backgroundColor = [UIColor whiteColor];
-    
-    self.oldpassword.layer.cornerRadius = 24;
     
     self.oldpassword.layer.masksToBounds = true;
     

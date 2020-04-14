@@ -137,8 +137,6 @@
         
         [_loginItem setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         
-        _loginItem.layer.cornerRadius = 24;
-        
         _loginItem.layer.masksToBounds = true;
         
         _loginItem.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -161,8 +159,6 @@
         [_swiftLoginItem setTitleColor:[UIColor s_transformToColorByHexColorStr:@CATColor] forState:UIControlStateNormal];
         
         [_swiftLoginItem setTitleColor:[UIColor s_transformTo_AlphaColorByHexColorStr: [NSString stringWithFormat:@"%@80",@CATColor]] forState:UIControlStateHighlighted];
-        
-        _swiftLoginItem.layer.cornerRadius = 24;
         
         _swiftLoginItem.layer.masksToBounds = true;
         
@@ -401,7 +397,7 @@
     
     self.logoImgView.backgroundColor = [UIColor whiteColor];
     
-    self.logoImgView.layer.cornerRadius = 40;
+    self.logoImgView.layer.cornerRadius = 5;
     
     self.logoImgView.layer.masksToBounds = true;
     
@@ -418,8 +414,6 @@
     
     self.phone.backgroundColor = [UIColor whiteColor];
     
-    self.phone.layer.cornerRadius = 24;
-    
     self.phone.layer.masksToBounds = true;
     
     [self.password mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -434,8 +428,6 @@
     }];
     
     self.password.backgroundColor = [UIColor whiteColor];
-    
-    self.password.layer.cornerRadius = 24;
     
     self.password.layer.masksToBounds = true;
     

@@ -131,8 +131,6 @@
         
         [_loginItem setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
         
-        _loginItem.layer.cornerRadius = 24;
-        
         _loginItem.layer.masksToBounds = true;
         
         _loginItem.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -155,8 +153,6 @@
         [_backLoginItem setTitleColor:[UIColor s_transformToColorByHexColorStr:@CATColor] forState:UIControlStateNormal];
         
         [_backLoginItem setTitleColor:[UIColor s_transformTo_AlphaColorByHexColorStr: [NSString stringWithFormat:@"%@80",@CATColor]] forState:UIControlStateHighlighted];
-        
-        _backLoginItem.layer.cornerRadius = 24;
         
         _backLoginItem.layer.masksToBounds = true;
         
@@ -402,8 +398,6 @@
     
     self.phone.backgroundColor = [UIColor whiteColor];
     
-    self.phone.layer.cornerRadius = 24;
-    
     self.phone.layer.masksToBounds = true;
     //
     [self.phone CAT_bottomLineFrame:CGRectMake(0, 47, w - 30, 1)];
@@ -421,8 +415,6 @@
     [self.vcode setLeftImageFrame:CGRectMake(0, 0, 80, 48)];
     
     self.vcode.backgroundColor = [UIColor whiteColor];
-    
-    self.vcode.layer.cornerRadius = 24;
     
     self.vcode.layer.masksToBounds = true;
     
