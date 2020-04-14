@@ -82,5 +82,9 @@ Pod::Spec.new do |spec|
     address.source_files = "Code/CATBean/Address/*.{swift}"
     address.dependency 'RxDataSources'
   end
+  spec.subspec 'Message' do |message|
+     message.source_files = "Code/CATBean/Message/*.{swift}"
+     message.dependency 'RxDataSources'
+   end
   
 end

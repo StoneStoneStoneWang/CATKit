@@ -24,22 +24,20 @@ struct CATMessageViewModel: WLBaseViewModel {
     
     struct WLInput {
         
-        let modelSelect: ControlEvent<CATAddressBean>
+        let modelSelect: ControlEvent<CATMessageBean>
         
         let itemSelect: ControlEvent<IndexPath>
         
         let headerRefresh: Driver<Void>
-        
-        let itemAccessoryButtonTapped: Driver<IndexPath>
-        
+    
         let addItemTaps: Signal<Void>
     }
     
     struct WLOutput {
         
-        let zip: Observable<(CATAddressBean,IndexPath)>
+        let zip: Observable<(CATMessageBean,IndexPath)>
         
-        let tableData: BehaviorRelay<[CATAddressBean]> = BehaviorRelay<[CATAddressBean]>(value: [])
+        let tableData: BehaviorRelay<[CATMessageBean]> = BehaviorRelay<[CATMessageBean]>(value: [])
         
         let endHeaderRefreshing: Driver<WLBaseResult>
         
@@ -58,7 +56,7 @@ struct CATMessageViewModel: WLBaseViewModel {
             .startWith(())
             .flatMapLatest({_ in
                 return CATArrayResp(CATApi.fetchAddress)
-                    .mapArray(type: CATAddressBean.self)
+                    .mapArray(type: CATMessageBean.self)
                     .map({ return $0.count > 0 ? WLBaseResult.fetchList($0) : WLBaseResult.empty })
                     .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
             })
@@ -77,7 +75,7 @@ struct CATMessageViewModel: WLBaseViewModel {
                 switch result {
                 case let .fetchList(items):
                     
-                    output.tableData.accept(items as! [CATAddressBean])
+                    output.tableData.accept(items as! [CATMessageBean])
                     
                 default: break
                 }
