@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
   
   spec.static_framework = true
   
-  spec.frameworks = 'UIKit', 'Foundation'
+  spec.frameworks = 'UIKit', 'Foundation' ,'CoreLocation'
   
   spec.source = { :git => "https://github.com/StoneStoneStoneWang/CATKit.git", :tag => "#{spec.version}" }
   

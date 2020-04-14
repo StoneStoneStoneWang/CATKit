@@ -244,11 +244,13 @@ Pod::Spec.new do |spec|
   end
   
   # 地址 地图
-  spec.subspec 'CATAMapViewController' do |amap|
-    amap.vendored_frameworks = 'Framework/CATAMapViewController/CATAMapViewController.framework'
-    amap.dependency 'CATTransition'
-    amap.dependency 'CATAMap'
-    amap.dependency 'CATReq'
+  spec.subspec 'Map' do |map|
+    map.source_files = "Code/CATContainer/Map/*.{h,m}"
+    map.dependency 'CATTransition'
+    map.dependency 'CATAMap'
+    map.dependency 'CATConfig'
+    map.dependency 'SToolsKit'
+    map.frameworks = 'UIKit', 'Foundation' ,'CoreLocation'
   end
   
 end
