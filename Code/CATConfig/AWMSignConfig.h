@@ -8,16 +8,16 @@
 
 #pragma mark ---- AWMSign
 
-#define AWMAPPKEY "d57268d6712340d3993bdb5aa064bbf3"
+#define AWMAPPKEY "cc8050936ebe4cb3b6ffc7ea808b3c96"
 
 #define AWMDOMAIN "http://zhihw.ecsoi.com/"
 
 #pragma mark ---- 花店
-#define AWMCONFIGURETYPEFLOWER 1
+#define AWMCONFIGURETYPECLEANER 1
 
-#if AWMCONFIGURETYPEFLOWER
+#if AWMCONFIGURETYPECLEANER
 
-#define AWMCONFIGURETYPE AWMConfigureTypeFlower
+#define AWMCONFIGURETYPE AWMConfigureTypeCLEANER
 
 #endif
 

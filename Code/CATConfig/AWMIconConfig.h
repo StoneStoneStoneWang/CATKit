@@ -14,7 +14,7 @@
 
 #define AWMLogoIcon "Logo"
 
-#define AWMWelcomeImgs @[@"引导页1",@"引导页2",@"引导页3",@"引导页4"]
+#define AWMWelcomeImgs @[@"引导页1",@"引导页2",@"引导页3"]
 
 #define AWMCarouselImgs @[\
 @{@"title": @"",@"icon": @"banner1"} ,\
@@ -36,7 +36,7 @@
 
 #define AWMSettingIcon "设置"
 
-#define AWMZPhoneNum "17193244367"
+#define AWMZPhoneNum "+86 17193244370"
 
 #define AWMPhoneIcon "手机号"
 
@@ -54,7 +54,7 @@
 
 #define AWMBackground "Background"
 
-#if AWMCONFIGURETYPEFLOWER
+#if AWMCONFIGURETYPECLEANER
 
 #define AWMOrderIcon "我的订单"
 

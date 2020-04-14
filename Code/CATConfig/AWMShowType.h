@@ -7,7 +7,7 @@
 //
 #import "AWMSignConfig.h"
 
-#define AWMColor "#a21362"
+#define AWMColor "#157cb0"
 
 #pragma mark --- 是否更新时启用
 

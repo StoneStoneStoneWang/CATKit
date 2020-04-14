@@ -81,7 +81,7 @@ extension CATUserCenterType {
         
         if CATConfigure.fetchPType() == .cleaner {
             
-            return [userInfo,.order,.address,.contactUS,.privacy,.about,.feedBack,.setting]
+            return [.order,.privacy,.about,.feedBack,.setting]
         }
         
         return [userInfo,.contactUS,.privacy,.about,.feedBack,.setting]
