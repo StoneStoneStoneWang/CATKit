@@ -29,8 +29,7 @@ struct CATMessageViewModel: WLBaseViewModel {
         let itemSelect: ControlEvent<IndexPath>
         
         let headerRefresh: Driver<Void>
-    
-        let addItemTaps: Signal<Void>
+
     }
     
     struct WLOutput {
@@ -40,10 +39,6 @@ struct CATMessageViewModel: WLBaseViewModel {
         let tableData: BehaviorRelay<[CATMessageBean]> = BehaviorRelay<[CATMessageBean]>(value: [])
         
         let endHeaderRefreshing: Driver<WLBaseResult>
-        
-        let addItemed: Driver<Void>
-        
-        let itemAccessoryButtonTapped: Driver<IndexPath>
     }
     init(_ input: WLInput ,disposed: DisposeBag) {
         
@@ -55,19 +50,15 @@ struct CATMessageViewModel: WLBaseViewModel {
             .headerRefresh
             .startWith(())
             .flatMapLatest({_ in
-                return CATArrayResp(CATApi.fetchAddress)
+                return CATArrayResp(CATApi.fetchSystemMsg(1))
                     .mapArray(type: CATMessageBean.self)
                     .map({ return $0.count > 0 ? WLBaseResult.fetchList($0) : WLBaseResult.empty })
                     .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
             })
         
-        let itemAccessoryButtonTapped: Driver<IndexPath> = input.itemAccessoryButtonTapped.map { $0 }
-        
         let endHeaderRefreshing = headerRefreshData.map { $0 }
-        
-        let addItemed: Driver<Void> = input.addItemTaps.flatMap { Driver.just($0) }
-        
-        let output = WLOutput(zip: zip, endHeaderRefreshing: endHeaderRefreshing, addItemed: addItemed, itemAccessoryButtonTapped: itemAccessoryButtonTapped)
+
+        let output = WLOutput(zip: zip, endHeaderRefreshing: endHeaderRefreshing)
         
         headerRefreshData
             .drive(onNext: { (result) in
@@ -87,10 +78,10 @@ struct CATMessageViewModel: WLBaseViewModel {
 }
 extension CATMessageViewModel {
     
-    static func removeAddress(_ encode: String) -> Driver<WLBaseResult> {
+    static func messageRead(_ encode: String) -> Driver<WLBaseResult> {
         
-        return CATVoidResp(CATApi.deleteAddress(encode))
-            .flatMapLatest({ return Driver.just(WLBaseResult.ok("移除成功")) })
+        return CATVoidResp(CATApi.readMsg(encode))
+            .flatMapLatest({ return Driver.just(WLBaseResult.ok("")) })
             .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
     }
 }

@@ -674,4 +674,27 @@ Pod::Spec.new do |spec|
       bridge.dependency 'CATCocoa/Refresh'
     end
   end
+  spec.subspec 'Message' do |message|
+    
+    message.subspec 'VM' do |vm|
+      
+      vm.source_files = "Code/CATBridge/Message/VM/*.{swift}"
+      vm.dependency 'RxCocoa'
+      vm.dependency 'WLBaseViewModel'
+      vm.dependency 'CATApi'
+      vm.dependency 'CATRReq'
+      vm.dependency 'WLBaseResult'
+      vm.dependency 'CATBean/Message'
+      
+    end
+    
+    message.subspec 'Bridge' do |bridge|
+      bridge.source_files = "Code/CATBridge/Message/Bridge/*.{swift}"
+      bridge.dependency 'CATBridge/Message/VM'
+      bridge.dependency 'CATCollection'
+      bridge.dependency 'CATBridge/Base'
+      bridge.dependency 'CATCocoa/ASM'
+      bridge.dependency 'CATCocoa/Refresh'
+    end
+  end
 end
