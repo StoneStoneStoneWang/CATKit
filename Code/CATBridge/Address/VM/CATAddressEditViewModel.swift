@@ -212,7 +212,7 @@ struct CATAddressEditViewModel: WLBaseViewModel {
                     return Driver<WLBaseResult>.just(WLBaseResult.failed("请填写详细地址"))
                 }
                 
-                return catDictResp(CATApi.editAddress(input.encode, name: $0.0, phone: $0.1, plcl: $0.3.areaId, plclne: $0.3.name, city: $0.4.areaId, cityne: $0.4.name, region: $0.5.areaId, regionne: $0.5.name, addr: $0.2, isdef: $0.6, zipCode: ""))
+                return CATDictResp(CATApi.editAddress(input.encode, name: $0.0, phone: $0.1, plcl: $0.3.areaId, plclne: $0.3.name, city: $0.4.areaId, cityne: $0.4.name, region: $0.5.areaId, regionne: $0.5.name, addr: $0.2, isdef: $0.6, zipCode: ""))
                     .mapObject(type: CATAddressBean.self)
                     .map({ WLBaseResult.operation($0) })
                     .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })

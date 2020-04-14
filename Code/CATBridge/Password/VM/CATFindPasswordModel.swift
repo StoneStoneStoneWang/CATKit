@@ -75,12 +75,12 @@ public struct CATFindPasswordModel: WLBaseViewModel {
             .withLatestFrom(input.username)
             .flatMapLatest({ (username) in
                 
-                switch catCheckUsername(username) {
+                switch CATCheckUsername(username) {
                 case .ok:
                     
                     let result: Observable<WLBaseResult> = Observable<WLBaseResult>.create({ (ob) -> Disposable in
  
-                        catVoidResp(CATApi.smsPassword(username))
+                        CATVoidResp(CATApi.smsPassword(username))
                             .subscribe(onNext: { (_) in
                                 
                                 ob.onNext(WLBaseResult.ok("验证码已发送到您的手机，请注意查收"))
@@ -122,10 +122,10 @@ public struct CATFindPasswordModel: WLBaseViewModel {
             .withLatestFrom(uvp)
             .flatMapLatest {
                 
-                switch catCheckPasswordForget($0.0, vcode: $0.1, password: $0.2) {
+                switch CATCheckPasswordForget($0.0, vcode: $0.1, password: $0.2) {
                 case .ok:
                     
-                    return catVoidResp(CATApi.resettingPassword($0.0, password: $0.2, code: $0.1))
+                    return CATVoidResp(CATApi.resettingPassword($0.0, password: $0.2, code: $0.1))
                         .map({ WLBaseResult.ok("找回密码成功") })
                         .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
                     

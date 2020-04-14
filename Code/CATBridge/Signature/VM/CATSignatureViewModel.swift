@@ -55,7 +55,7 @@ struct CATSignatureViewModel: WLBaseViewModel {
         
         let completed: Driver<WLBaseResult> = input.completTaps
             .withLatestFrom(input.updated)
-            .flatMapLatest({ return catDictResp(CATApi.updateUserInfo("users.signature", value: $0))
+            .flatMapLatest({ return CATDictResp(CATApi.updateUserInfo("users.signature", value: $0))
                 .mapObject(type: CATUserBean.self)
                 .map({ CATUserInfoCache.default.saveUser(data: $0) })
                 .map { WLBaseResult.updateUserInfoSucc($0, msg: "个性签名修改成功")}

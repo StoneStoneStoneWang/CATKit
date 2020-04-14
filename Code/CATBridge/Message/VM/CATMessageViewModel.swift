@@ -57,7 +57,7 @@ struct CATMessageViewModel: WLBaseViewModel {
             .headerRefresh
             .startWith(())
             .flatMapLatest({_ in
-                return catArrayResp(CATApi.fetchAddress)
+                return CATArrayResp(CATApi.fetchAddress)
                     .mapArray(type: CATAddressBean.self)
                     .map({ return $0.count > 0 ? WLBaseResult.fetchList($0) : WLBaseResult.empty })
                     .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
@@ -91,7 +91,7 @@ extension CATMessageViewModel {
     
     static func removeAddress(_ encode: String) -> Driver<WLBaseResult> {
         
-        return catVoidResp(CATApi.deleteAddress(encode))
+        return CATVoidResp(CATApi.deleteAddress(encode))
             .flatMapLatest({ return Driver.just(WLBaseResult.ok("移除成功")) })
             .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
     }

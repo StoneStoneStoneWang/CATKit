@@ -61,7 +61,7 @@ struct CATCollectionsViewModel: WLBaseViewModel {
             .headerRefresh
             .flatMapLatest({_ in
   
-                return catArrayResp(input.isMy ? CATApi.fetchMyList(input.tag, page: 1) : CATApi.fetchList(input.tag, page: 1))
+                return CATArrayResp(input.isMy ? CATApi.fetchMyList(input.tag, page: 1) : CATApi.fetchList(input.tag, page: 1))
                     .mapArray(type: CATCircleBean.self)
                     .map({ return $0.count > 0 ? WLBaseResult.fetchList($0) : WLBaseResult.empty })
                     .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
@@ -73,7 +73,7 @@ struct CATCollectionsViewModel: WLBaseViewModel {
             .footerRefresh
             .flatMapLatest({_ in
                 
-                return catArrayResp(input.isMy ? CATApi.fetchMyList(input.tag, page: input.page.value) : CATApi.fetchList(input.tag, page: input.page.value))
+                return CATArrayResp(input.isMy ? CATApi.fetchMyList(input.tag, page: input.page.value) : CATApi.fetchList(input.tag, page: input.page.value))
                     .mapArray(type: CATCircleBean.self)
                     .map({ return $0.count > 0 ? WLBaseResult.fetchList($0) : WLBaseResult.empty })
                     .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
@@ -159,26 +159,26 @@ struct CATCollectionsViewModel: WLBaseViewModel {
     
     static func addBlack(_ OUsEncoded: String,targetEncoded: String ,content: String) -> Driver<WLBaseResult> {
 
-        return catVoidResp(CATApi.addBlack(OUsEncoded, targetEncoded: targetEncoded, content: content))
+        return CATVoidResp(CATApi.addBlack(OUsEncoded, targetEncoded: targetEncoded, content: content))
             .map({ _ in WLBaseResult.ok("添加黑名单成功")})
             .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
     }
     static func focus(_ uid: String ,encode: String) -> Driver<WLBaseResult> {
         
-        return catVoidResp(CATApi.focus(uid, targetEncoded: encode))
+        return CATVoidResp(CATApi.focus(uid, targetEncoded: encode))
             .flatMapLatest({ return Driver.just(WLBaseResult.ok("关注或取消关注成功")) })
             .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
     }
     
     static func like(_ encoded: String ,isLike: Bool) -> Driver<WLBaseResult> {
         
-        return catVoidResp(CATApi.like(encoded))
+        return CATVoidResp(CATApi.like(encoded))
             .flatMapLatest({ return Driver.just(WLBaseResult.ok( isLike ? "点赞成功" : "取消点赞成功")) })
             .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
     }
     static func removeMyCircle(_ encoded: String ) -> Driver<WLBaseResult> {
         
-        return catVoidResp(CATApi.deleteMyCircle(encoded))
+        return CATVoidResp(CATApi.deleteMyCircle(encoded))
             .map({ WLBaseResult.ok("删除成功！")  })
             .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
     }

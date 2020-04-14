@@ -53,7 +53,7 @@ struct CATNameViewModel: WLBaseViewModel {
         let completed: Driver<WLBaseResult> = input.completTaps
             .withLatestFrom(input.updated)
             .flatMapLatest({
-                return catDictResp(CATApi.updateUserInfo("users.nickname", value: $0))
+                return CATDictResp(CATApi.updateUserInfo("users.nickname", value: $0))
                     .mapObject(type: CATUserBean.self)
                     .map({ CATUserInfoCache.default.saveUser(data: $0) })
                     .map { WLBaseResult.updateUserInfoSucc($0, msg: "昵称修改成功")}

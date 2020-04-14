@@ -76,10 +76,10 @@ public struct CATRegViewModel: WLBaseViewModel {
         // 登录完成返回
         let logined: Driver<WLBaseResult> = input.loginTaps.withLatestFrom(usernameAndVcode).flatMapLatest {
             
-            switch catCheckUsernameAndVCode($0.0, vcode: $0.1) {
+            switch CATCheckUsernameAndVCode($0.0, vcode: $0.1) {
             case .ok:
                 
-                return catDictResp(CATApi.swiftLogin($0.0, code: $0.1))
+                return CATDictResp(CATApi.swiftLogin($0.0, code: $0.1))
                     .mapObject(type: CATAccountBean.self)
                     .map({ CATAccountCache.default.saveAccount(acc: $0) }) // 存储account
                     .map({ $0.toJSON()})
@@ -103,11 +103,11 @@ public struct CATRegViewModel: WLBaseViewModel {
             .withLatestFrom(input.username)
             .flatMapLatest({ (username) in
                 
-                switch catCheckUsername(username) {
+                switch CATCheckUsername(username) {
                 case .ok:
                     //
                     let result: Observable<WLBaseResult> = Observable<WLBaseResult>.create({ (ob) -> Disposable in
-                        catVoidResp(CATApi.smsCode(username))
+                        CATVoidResp(CATApi.smsCode(username))
                             .subscribe(onNext: { (_) in
                                 
                                 ob.onNext(WLBaseResult.ok("验证码已发送到您的手机，请注意查收"))

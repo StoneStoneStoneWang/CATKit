@@ -101,7 +101,7 @@ struct CATReportViewModel: WLBaseViewModel {
             .withLatestFrom(combine)
             .flatMapLatest {
 
-                return catVoidResp(CATApi.report(input.uid, targetEncoded: input.encode, type: $0.0, content: $0.1))
+                return CATVoidResp(CATApi.report(input.uid, targetEncoded: input.encode, type: $0.0, content: $0.1))
                     .map({ _ in WLBaseResult.ok("举报成功") })
                     .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
         }

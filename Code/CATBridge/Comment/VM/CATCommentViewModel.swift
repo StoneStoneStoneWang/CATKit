@@ -60,7 +60,7 @@ struct CATCommentViewModel: WLBaseViewModel {
             .startWith(())
             .flatMapLatest({_ in
                 
-                return catArrayResp(CATApi.fetchComments(1, targetEncoded: input.encoded))
+                return CATArrayResp(CATApi.fetchComments(1, targetEncoded: input.encoded))
                     .mapArray(type: CATCommentBean.self)
                     .map({ return $0.count > 0 ? WLBaseResult.fetchList($0) : WLBaseResult.empty })
                     .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
@@ -72,7 +72,7 @@ struct CATCommentViewModel: WLBaseViewModel {
             .footerRefresh
             .flatMapLatest({_ in
                 
-                return catArrayResp(CATApi.fetchComments(input.page.value, targetEncoded: input.encoded))
+                return CATArrayResp(CATApi.fetchComments(input.page.value, targetEncoded: input.encoded))
                     .mapArray(type: CATCommentBean.self)
                     .map({ return $0.count > 0 ? WLBaseResult.fetchList($0) : WLBaseResult.empty })
                     .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
@@ -226,7 +226,7 @@ struct CATCommentViewModel: WLBaseViewModel {
     
     static func addComment(_ encoded: String,content: String) -> Driver<WLBaseResult> {
         
-        return catDictResp(CATApi.addComment(encoded, content: content, tablename: "CircleFriends", type: "0"))
+        return CATDictResp(CATApi.addComment(encoded, content: content, tablename: "CircleFriends", type: "0"))
             .mapObject(type: CATCommentBean.self)
             .map({ WLBaseResult.operation($0) })
             .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })

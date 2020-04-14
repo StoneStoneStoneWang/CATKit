@@ -155,7 +155,7 @@ struct CATUserCenterViewModel: WLBaseViewModel {
         
         CATUserInfoCache.default.userBean = CATUserInfoCache.default.queryUser()
         
-        catDictResp(CATApi.fetchProfile)
+        CATDictResp(CATApi.fetchProfile)
             .mapObject(type: CATUserBean.self)
             .map({ CATUserInfoCache.default.saveUser(data: $0) })
             .subscribe(onNext: { (_) in })

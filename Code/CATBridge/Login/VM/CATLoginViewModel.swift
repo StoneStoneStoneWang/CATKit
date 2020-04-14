@@ -70,10 +70,10 @@ public struct CATLoginViewModel: WLBaseViewModel {
             .withLatestFrom(uap)
             .flatMapLatest {
   
-                switch catCheckUsernameAndPassword($0.0, password: $0.1) {
+                switch CATCheckUsernameAndPassword($0.0, password: $0.1) {
                 case .ok:
 
-                    return catDictResp(CATApi.login($0.0,password: $0.1))
+                    return CATDictResp(CATApi.login($0.0,password: $0.1))
                         .mapObject(type: CATAccountBean.self)
                         .map({ CATAccountCache.default.saveAccount(acc: $0) }) // 存储account
                         .map({ $0.toJSON()})

@@ -120,7 +120,7 @@ extension CATUserInfoBridge {
                     
                     DispatchQueue.global().async {
                         
-                        catUploadImgResp(data, file: "headerImg", param: obj as! CATALCredentialsBean)
+                        CATUploadImgResp(data, file: "headerImg", param: obj as! CATALCredentialsBean)
                             .subscribe(onNext: { [weak self] (value) in
                                 
                                 guard let `self` = self else { return }

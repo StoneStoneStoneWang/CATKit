@@ -50,7 +50,7 @@ public struct CATBlackViewModel: WLBaseViewModel {
             .startWith(())
             .flatMapLatest({_ in
 
-                return catArrayResp(CATApi.fetchBlackList)
+                return CATArrayResp(CATApi.fetchBlackList)
                     .mapArray(type: CATBlackBean.self)
                     .map({ return $0.count > 0 ? WLBaseResult.fetchList($0) : WLBaseResult.empty })
                     .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
@@ -80,7 +80,7 @@ extension CATBlackViewModel {
     
     static func removeBlack(_ encode: String) -> Driver<WLBaseResult> {
         
-        return catVoidResp(CATApi.removeBlack(encode))
+        return CATVoidResp(CATApi.removeBlack(encode))
             .flatMapLatest({ return Driver.just(WLBaseResult.ok("移除成功")) })
             .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
     }

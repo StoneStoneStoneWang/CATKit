@@ -55,7 +55,7 @@ struct CATFeedBackViewModel: WLBaseViewModel {
             .withLatestFrom(ou)
             .flatMapLatest({
                 
-                return catVoidResp(CATApi.feedback("yuanxingfu1314@163.com", content: $0.0))
+                return CATVoidResp(CATApi.feedback("yuanxingfu1314@163.com", content: $0.0))
                     .map { _ in WLBaseResult.ok("意见建议提交成功")}
                     .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) }) })
         

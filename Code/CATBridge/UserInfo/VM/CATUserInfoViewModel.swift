@@ -215,7 +215,7 @@ public struct CATUserInfoViewModel: WLBaseViewModel {
     
     public static func updateUserInfo(type: CATUserInfoType,value: String) -> Driver<WLBaseResult>{
         
-        return catDictResp(CATApi.updateUserInfo(type.updateKey, value: value))
+        return CATDictResp(CATApi.updateUserInfo(type.updateKey, value: value))
             .mapObject(type: CATUserBean.self)
             .map({ CATUserInfoCache.default.saveUser(data: $0) })
             .map { _ in WLBaseResult.ok("")}
@@ -224,7 +224,7 @@ public struct CATUserInfoViewModel: WLBaseViewModel {
     
     public static func fetchAliToken() -> Driver<WLBaseResult> {
         
-        return catAliResp(CATApi.aliToken)
+        return CATAliResp(CATApi.aliToken)
             .map { WLBaseResult.fetchSomeObject($0 as AnyObject)}
             .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
     }

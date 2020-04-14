@@ -53,8 +53,8 @@ public struct CATModifyPasswordViewModel: WLBaseViewModel {
             .withLatestFrom(opa)
             .flatMapLatest {
                 
-                switch catCheckPasswordModify($0.0, password: $0.2, passwordAgain: $0.1) {
-                case .ok: return catVoidResp(CATApi.modifyPassword($0.0, password: $0.1))
+                switch CATCheckPasswordModify($0.0, password: $0.2, passwordAgain: $0.1) {
+                case .ok: return CATVoidResp(CATApi.modifyPassword($0.0, password: $0.1))
                     .map({ WLBaseResult.ok("修改密码成功") })
                     .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
                     

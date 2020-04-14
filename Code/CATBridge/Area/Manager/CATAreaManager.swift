@@ -61,7 +61,7 @@ extension CATAreaManager {
                 return Driver.just(WLBaseResult.failed("获取本地数据失败!"))
             } else {
                 
-                return catAreaResp(CATApi.fetchAreaJson)
+                return CATAreaResp(CATApi.fetchAreaJson)
                     .map({ CATAreaManager.default.saveArea($0) })
                     .map({ _ in WLBaseResult.fetchList(CATAreaManager.default.allAreas)  })
                     .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
