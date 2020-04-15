@@ -27,7 +27,7 @@ public final class CATMessageBean: NSObject,Mappable,IdentifiableType {
         
         encoded  <- map["encoded"]
         
-        dect  <- map["dect"]
+        dsct  <- map["dsct"]
         
         isread  <- map["isread"]
         
@@ -38,7 +38,7 @@ public final class CATMessageBean: NSObject,Mappable,IdentifiableType {
     
     @objc public var intime: String = ""
     
-    @objc public var dect: String = ""
+    @objc public var dsct: String = ""
     
     @objc public var encoded: String = ""
 

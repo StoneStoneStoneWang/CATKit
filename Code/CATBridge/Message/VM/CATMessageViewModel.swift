@@ -29,7 +29,7 @@ struct CATMessageViewModel: WLBaseViewModel {
         let itemSelect: ControlEvent<IndexPath>
         
         let headerRefresh: Driver<Void>
-
+        
     }
     
     struct WLOutput {
@@ -57,7 +57,7 @@ struct CATMessageViewModel: WLBaseViewModel {
             })
         
         let endHeaderRefreshing = headerRefreshData.map { $0 }
-
+        
         let output = WLOutput(zip: zip, endHeaderRefreshing: endHeaderRefreshing)
         
         headerRefreshData
@@ -82,6 +82,14 @@ extension CATMessageViewModel {
         
         return CATVoidResp(CATApi.readMsg(encode))
             .flatMapLatest({ return Driver.just(WLBaseResult.ok("")) })
+            .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
+    }
+    
+    static func fetchFirstMessage() -> Driver<WLBaseResult> {
+        
+        return CATArrayResp(CATApi.fetchFirstMsg)
+            .mapArray(type: CATMessageBean.self)
+            .flatMapLatest({ return Driver.just(WLBaseResult.fetchList($0)) })
             .asDriver(onErrorRecover: { return Driver.just(WLBaseResult.failed(($0 as! WLBaseError).description.0)) })
     }
 }

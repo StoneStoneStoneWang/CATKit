@@ -105,19 +105,40 @@ extension CATMessageBridge {
 }
 extension CATMessageBridge: UITableViewDelegate {
     
-    @objc public func messageReadReq(_ message: CATMessageBean) {
+    @objc public func messageReadReq(_ message: CATMessageBean ,_ ip: IndexPath) {
         
         CATMessageViewModel
-            .messageRead(message.encoded)
+            .messageRead("\(message.mid)")
             .drive(onNext: { [unowned self] (result) in
                 
-                let values = self.viewModel.output.collectionData.value
+                switch result {
+                case .ok:
+                    
+                    self.messageRead(ip)
+                default:
+                    
+                    break
+                }
+            })
+            .disposed(by: disposed)
+    }
+    
+    @objc public func fetchFirstMessage(_ messageAction: @escaping (_ message: CATMessageBean) -> ()) {
+        
+        CATMessageViewModel
+            .fetchFirstMessage()
+            .drive(onNext: { (result) in
                 
-                if let idx = values.firstIndex(where: { $0.encoded == message.encoded }) {
+                switch result {
+                case .fetchList(let list):
                     
-                    values[idx].isread = true
+                    if list.count > 0{
+                        
+                        messageAction(list.first as! CATMessageBean)
+                    }
+                default:
                     
-                    self.vc.collectionView.reloadItems(at: [IndexPath(item: 0, section: idx)])
+                    break
                 }
             })
             .disposed(by: disposed)
