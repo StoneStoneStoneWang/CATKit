@@ -200,7 +200,7 @@
 
 #define CATOrderViewController MTTAnmgOj0M
 
-#if CATCONFIGURETYPEFLOWER
+#if CATCONFIGURETYPECleaner
 
 #define CATPushOrder Q20dRCtWpcZi
 
