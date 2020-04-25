@@ -425,13 +425,6 @@
 
 @implementation CATCommentViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self.navigationController.navigationBar setBackgroundColor:[UIColor s_transformToColorByHexColorStr:@CATColor]];
-    
-}
-
 + (instancetype)createCommentWithEncode:(NSString *)encode andCircleBean:(CATCircleBean *)circleBean andOp:(CATCommentBlock) block {
     
     return [[self alloc] initWithEncode:encode andCircleBean:circleBean andOp:block];
@@ -678,15 +671,20 @@
     
     __weak typeof(self) weakSelf = self;
     
-    [self.bridge addComment:self.encode content:self.editTF.text commentAction:^(CATCommentBean * _Nullable commentBean, CATCircleBean * _Nonnull circleBean) {
-       
-        [weakSelf.editTF resignFirstResponder];
+    if ([[CATAccountCache shared] isLogin]) {
+        
+        [self.bridge addComment:self.encode content:self.editTF.text commentAction:^(CATCommentBean * _Nullable commentBean, CATCircleBean * _Nonnull circleBean) {
+           
+            [weakSelf.editTF resignFirstResponder];
 
-        weakSelf.editTF.text = @"";
+            weakSelf.editTF.text = @"";
 
-        weakSelf.block(weakSelf, CATCommentActionTypeComment ,weakSelf.circleBean);
-    }];
-    
+            weakSelf.block(weakSelf, CATCommentActionTypeComment ,weakSelf.circleBean);
+        }];
+    } else {
+        
+        self.block(self, CATCommentActionTypeUnLogin ,self.circleBean);
+    }
 }
 
 - (void)onReloadItemClick {

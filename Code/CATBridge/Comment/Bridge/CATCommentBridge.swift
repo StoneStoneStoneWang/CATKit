@@ -36,10 +36,10 @@ extension CATCommentBridge {
         self.circleBean = circle
         
         let input = CATCommentViewModel.WLInput(modelSelect: vc.tableView.rx.modelSelected(CATCommentBean.self),
-                                              itemSelect: vc.tableView.rx.itemSelected,
-                                              headerRefresh: vc.tableView.mj_header!.rx.CATRefreshing.asDriver(),
-                                              footerRefresh: vc.tableView.mj_footer!.rx.CATRefreshing.asDriver(),
-                                              encoded: encode)
+                                                itemSelect: vc.tableView.rx.itemSelected,
+                                                headerRefresh: vc.tableView.mj_header!.rx.CATRefreshing.asDriver(),
+                                                footerRefresh: vc.tableView.mj_footer!.rx.CATRefreshing.asDriver(),
+                                                encoded: encode)
         
         viewModel = CATCommentViewModel(input, disposed: disposed)
         
@@ -136,7 +136,7 @@ extension CATCommentBridge {
         }
         
         self.vc.tableView.scrollsToTop = true
-
+        
     }
     @objc public func addComment(_ encoded: String,content: String ,commentAction: @escaping (_ comment: CATCommentBean? ,_ circleBean: CATCircleBean) -> () ) {
         
@@ -155,8 +155,10 @@ extension CATCommentBridge {
                     
                     self.circleBean.countComment += 1
                     
+                    self.insertComment(comment as! CATCommentBean)
+                    
                     commentAction(comment as? CATCommentBean ,self.circleBean)
-
+                    
                 case .failed(let msg):
                     
                     CATHud.showInfo(msg)
