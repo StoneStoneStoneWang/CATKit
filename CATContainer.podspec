@@ -252,5 +252,16 @@ Pod::Spec.new do |spec|
     map.dependency 'SToolsKit'
     map.frameworks = 'UIKit', 'Foundation' ,'CoreLocation'
   end
-  
+  # 评论 comment
+  spec.subspec 'Comment' do |comment|
+    
+    comment.source_files = "Code/CATContainer/Comment/*.{h,m}"
+    comment.dependency 'CATConfig'
+    comment.dependency 'CATBridge/Comment/Bridge'
+    comment.dependency 'SDWebImage'
+    comment.dependency 'Masonry'
+    comment.dependency 'CATTable'
+    comment.dependency 'JXTAlertManager'
+  end
+
 end
